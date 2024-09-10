@@ -11,7 +11,9 @@ body {
 }
 
 header {
-    height: 75px;
+    display: flex;
+    align-items: center;
+    height: 5em;
 }
 
 main {
@@ -20,9 +22,24 @@ main {
 }
 
 footer {
-    height: 25px;
+    height: 2em;
 }
 
-h1 {
-    color: red;
+img {
+    padding: 8px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: orange;
+    font-size: 1em;
+}
+
+li {
+    float: left;
+    padding: 1em;
 }
