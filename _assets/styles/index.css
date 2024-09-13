@@ -8,25 +8,67 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
+    margin: 0;
+    padding: 0;
 }
 
 header {
     display: flex;
+    flex: 1;
     align-items: center;
+    justify-content: space-between;
+    border: 4px solid orange;
     height: 5em;
+    padding: 0 18px;
+    font-size: 18px;
+    font-family: "Noto Sans Devanagari Condensed SemiBold", sans-serif;
+    background-color: white;
+
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.header-right{
+    display: flex;
+    align-items: center;
 }
 
 main {
-    flex: auto;
-    background-color: #ccc;
+    background-color: #eee;
+    flex: 1 1 auto;
 }
 
+/** Debut footer **/
 footer {
-    height: 2em;
+    border-top:3px solid black;
+    background-color: #FFC067;
+    display: flex;
+    flex-direction: column;
+    font-size: 0.75em;
 }
+
+.apropos {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+}
+
+.copyright {
+    text-align:center;
+
+}
+/**Fin footer **/
 
 img {
-    padding: 8px;
+    margin: 4px;
 }
 
 ul {
@@ -42,4 +84,71 @@ a {
 li {
     float: left;
     padding: 1em;
+}
+
+/* TEST MENU HAMBURGER*/
+
+.sidenav {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: -250px;
+    background-color: #e8e8e8;
+    padding-top: 60px;
+    transition: left 0.5s ease;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #111;
+}
+
+.sidenav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidenav.active {
+    left: 0;
+}
+
+.sidenav .close {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+}
+
+.burger-icon span {
+    display: none;
+}
+
+
+@media (max-width: 800px) {
+    .menu {
+        display: none;
+    }
+
+    .header-right {
+        display: none;
+    }
+
+    .burger-icon span {
+        display: block;
+        width: 35px;
+        height: 5px;
+        background-color: orange;
+        margin: 6px 0;
+    }
 }
