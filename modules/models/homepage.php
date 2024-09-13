@@ -2,10 +2,10 @@
 <html lang="fr">
 <head>
     <style>
-        <?php include '_assets/styles/index.css';?>
+        <?php include '../../_assets/styles/index.css';?>
     </style>
     <script>
-        <?php require_once("_assets/javascript/index.js");?>
+        <?php require_once("../../_assets/javascript/index.js");?>
     </script>
     <meta charset="UTF-8">
     <meta name="description" content="Tenrac, adeptes des tenders de poulet à la raclette">

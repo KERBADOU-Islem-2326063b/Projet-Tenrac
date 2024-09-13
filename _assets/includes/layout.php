@@ -18,7 +18,7 @@
     <div class="header-left">
         <div id="mySidenav" class="sidenav">
             <a id="closeBtn" href="#" class="close">×</a>
-            <ul id = "menu">
+            <ul id="menu">
                 <li class="li-header"><a href="#">REPAS</a></li>
                 <li class="li-header"><a href="#">PLATS</a></li>
                 <li class="li-header"><a href="#">CONNEXION</a></li>
@@ -88,22 +88,14 @@
 
 <footer>
     <div class="apropos">
-        <p><strong>Adresse :</strong> 105 rue de la raclette, 1934 Bagnes, Suisse. </p>
-        <p><strong>Email :</strong> tenrac@poulet.fr</p>
-        <p><strong>Téléphone :</strong> 06.12.34.56.78</p>
+        <a><strong>NOS CONTACTS</strong></a>
+        <p class="copyright">© Copyright 2024 Tenrac - All Rights Reserved.</p>
         <div>
-            <a href="#"><img src="https://imgur.com/0kZm59H.png" width="30px" height="80%"></a>
-            <a href="#"><img src="https://imgur.com/CTTXkU7.png" width="30px" height="80%"></a>
-            <a href="#"><img src="https://imgur.com/QwF9yiJ.png" width="30px" height="80%"></a>
+            <a href="#"><img src="https://imgur.com/0kZm59H.png" width="30px" height="60%"></a>
+            <a href="#"><img src="https://imgur.com/CTTXkU7.png" width="30px" height="60%"></a>
+            <a href="#"><img src="https://imgur.com/QwF9yiJ.png" width="30px" height="60%"></a>
         </div>
     </div>
-
-
-    <div>
-        <p class="copyright">© Copyright 2024 Tenrac - All Rights Reserved.</p>
-    </div>
-
-
 
 </footer>
 
