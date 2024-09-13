@@ -2,6 +2,9 @@
 
 namespace Includes;
 
+/**
+ * Une classe pour les routes. Une route associe un lien avec une fonction exécutable
+ */
 class Route {
 
     private $path;

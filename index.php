@@ -1,6 +1,10 @@
 <?php
 use Includes\Route;
 use Includes\Exceptions\RouterException;
+
+/**
+ * Classe du routeur du site
+ */
 class Router {
 
     private $url;
@@ -17,6 +21,11 @@ class Router {
         return $route;
     }
 
+    /**
+     * Cherche la page correspondante au lien demandé
+     * à partir de toutes les routes possibles
+     * @throws RouterException si erreur il y a
+     */
     public function run(){
         if(!isset($this->routes[$_SERVER['REQUEST_METHOD']])){
             throw new RouterException("REQUEST_mETHOD n'existe pas");
