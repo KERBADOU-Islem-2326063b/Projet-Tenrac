@@ -1,0 +1,14 @@
+img {
+    padding: 8px;
+    object-fit: cover;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: orange;
+    font-size: 1em;
+}
