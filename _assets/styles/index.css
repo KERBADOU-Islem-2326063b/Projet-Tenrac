@@ -8,25 +8,34 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
+    margin: 0;
+    padding: 0;
 }
 
 header {
     display: flex;
     align-items: center;
+    border: 4px solid orange;
     height: 5em;
 }
 
 main {
-    flex: auto;
-    background-color: #ccc;
+    background-color: #eee;
+    flex: 1 1 auto;
+    border: 4px solid black;
 }
 
 footer {
-    height: 2em;
+    height: 5em;
+    background-color: orange;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 img {
     padding: 8px;
+    object-fit: cover;
 }
 
 ul {
@@ -42,4 +51,20 @@ a {
 li {
     float: left;
     padding: 1em;
+}
+
+.li-header {
+    font-size: 1em;
+}
+
+.image {
+    height: auto;
+}
+
+@media (max-width: 600px) {
+    header {
+        img {
+
+        }
+    }
 }
