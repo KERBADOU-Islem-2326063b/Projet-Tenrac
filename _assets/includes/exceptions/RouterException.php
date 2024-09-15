@@ -1,10 +1,9 @@
 <?php
+
 /**
  * Exception si aucune route n'est trouvée par le router
  */
-namespace Includes\Exceptions;
 
-use Exception;
 
 class RouterException extends Exception{
     public function __construct($message, $code = 0, Exception $previous = null){
