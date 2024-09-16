@@ -1,19 +1,16 @@
 <?php
-use Includes\Route;
-use Includes\Exceptions\RouterException;
 
+require_once '_assets/includes/autoloader.php';
+Autoloader::register();
 /**
  * Classe du routeur du site
  */
 class Router {
-
     private $url;
     private $routes = [];
-
     public function __construct($url) {
         $this->url = $url;
     }
-
     public function get($path, $callable){
         $route = new Route($path, $callable);
 
@@ -41,7 +38,7 @@ class Router {
     }
 }
 
-$router = new Router($_GET['url']);
+$router = new Router($_SERVER['REQUEST_URI']);
 $router->get('/', function(){ echo "BIENVENUE !!"; });
 $router->get('/bonjour', function(){ echo "BONJOUR !!"; });
 try {
