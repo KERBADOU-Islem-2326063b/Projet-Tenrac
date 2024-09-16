@@ -14,7 +14,6 @@ body {
 
 header {
     display: flex;
-    flex: 1;
     align-items: center;
     justify-content: space-between;
     border: 4px solid orange;
@@ -29,7 +28,7 @@ header {
     z-index: 999;
 }
 
-.header-text {
+.a-header {
     color: orange;
 }
 
@@ -62,7 +61,6 @@ footer {
     flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
-
 }
 
 .copyright {
@@ -89,7 +87,7 @@ li {
     padding: 1em;
 }
 
-/* TEST MENU HAMBURGER*/
+/* MENU HAMBURGER */
 
 .sidenav {
     height: 100%;
