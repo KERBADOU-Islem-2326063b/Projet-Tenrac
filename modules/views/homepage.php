@@ -3,7 +3,7 @@
 ?>
 
 <?php
-    start_page('Home', 'Bienvenue dans la page d\'accueil de notre magnifique site web !');
+    start_page('Home', 'Bienvenue dans la page d\'accueil de notre magnifique site web !', '../../_assets/styles/homepage.css', '../../_assets/javascript/homepage.js');
 ?>
 
 <main>
