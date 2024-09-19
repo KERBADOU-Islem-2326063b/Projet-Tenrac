@@ -2,17 +2,23 @@
 /*
  * Fonction permettant la création d'un début de page
 */
-function start_page($title, $description): void
+function start_page($title, $description, $cssFilePath = null, $jsFilePath = null): void
 {
 ?>
     <!DOCTYPE html>
     <html lang="fr">
     <head>
         <style>
-            <?php include '../../_assets/styles/layout.css';?>
+            <?php include '../../_assets/styles/layout.css';
+            if ($cssFilePath) {
+                include $cssFilePath;
+            }?>
         </style>
         <script>
-            <?php require_once("../../_assets/javascript/layout.js");?>
+            <?php require_once("../../_assets/javascript/layout.js");
+            if ($jsFilePath) {
+                include $jsFilePath;
+            }?>
         </script>
         <meta charset="UTF-8">
         <meta name="description" content=<?php echo $description; ?>>
