@@ -1,31 +1,26 @@
 body {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-#repas {
-    width: 90%;
+    flex-direction: column;
 }
 
 #titre {
     font-family: "Noto Sans Devanagari Condensed SemiBold", system-ui;
     font-size: 240%;
     color: #d18717;
-    padding: 35px 35px 0 0;
+    padding: 35px 35px 20px 5%;
 }
 
-.blocRepas {
+.repas {
     display: flex;
     flex-direction: row;
-    justify-items: center;
-    padding-top: 2%;
-    padding-bottom: 2%;
+    align-self: center;
+    padding-top: 22px;
+    padding-bottom: 22px;
 
     border-style: solid;
     border-width: 2px;
     border-color: #d18717;
-    width: 100%;
+    width: 90%;
 }
 
 .colonneL {

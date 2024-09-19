@@ -11,24 +11,22 @@ class Repas {
             <?php include './repas.css';?>
         </style>
         <body>
-            <div id="repas">
-                <p id="titre"> Repas </p>
-                <div class="blocRepas">
-                    <div class="colonneL">
-                        <div> <strong> N° repas </strong> </div>
-                        <div> Chevalier/Dame </div>
-                    </div>
-                    <div class="colonneML">
-                        <div> Adresse complète </div>
-                        <div> Code Postale </div>
-                        <div> Departement </div>
-                    </div>
-                    <div class="colonneR">
-                        <div> Plat </div>
-                    </div>
-                    <div class="colonneR">
-                        <div> <strong> Date </strong> </div>
-                    </div>
+            <p id="titre"> Repas </p>
+            <div class="repas">
+                <div class="colonneL">
+                    <div> <strong> N° repas </strong> </div>
+                    <div> Chevalier/Dame </div>
+                </div>
+                <div class="colonneML">
+                    <div> Adresse complète </div>
+                    <div> Code Postale </div>
+                    <div> Departement </div>
+                </div>
+                <div class="colonneR">
+                    Plat
+                </div>
+                <div class="colonneR">
+                    <strong> Date </strong>
                 </div>
             </div>
         </body>
@@ -36,3 +34,4 @@ class Repas {
 <?php
     }
 }
+?>
