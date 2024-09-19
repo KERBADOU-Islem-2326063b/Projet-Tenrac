@@ -1,0 +1,57 @@
+body {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#repas {
+    width: 90%;
+}
+
+#titre {
+    font-family: "Noto Sans Devanagari Condensed SemiBold", system-ui;
+    font-size: 240%;
+    color: #d18717;
+    padding: 35px 35px 0 0;
+}
+
+.blocRepas {
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    padding-top: 2%;
+    padding-bottom: 2%;
+
+    border-style: solid;
+    border-width: 2px;
+    border-color: #d18717;
+    width: 100%;
+}
+
+.colonneL {
+    display: flex;
+    flex-basis: 23%;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: start;
+    margin-left: 2%;
+}
+
+.colonneML {
+    display: flex;
+    flex-basis: 25%;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: end;
+}
+
+.colonneR {
+    display: flex;
+    flex-basis: 25%;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
