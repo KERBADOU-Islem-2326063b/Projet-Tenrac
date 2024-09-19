@@ -34,4 +34,6 @@ class Repas {
 <?php
     }
 }
+/*    $dbLink = mysqli_connect('mysql-tenrac.alwaysdata.net', 'tenrac_db', 'JdozlVeieo628hK')
+        or die('Erreur de connexion au serveur : ' . mysqli_connect_error());*/
 ?>
