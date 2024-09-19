@@ -1,9 +1,16 @@
 <?php
-/*
- * Fonction permettant la création d'un début de page
-*/
-function start_page($title, $description): void
-{
+namespace Blog\Views;
+/**
+ * Classe du layout du site
+ */
+class Layout {
+    private $title;
+    private $description;
+    public function __construct(string $title, string $description) {
+        $this->title = $title;
+        $this->description = $description;
+    }
+    public function renderTop(): void {
 ?>
     <!DOCTYPE html>
     <html lang="fr">
@@ -12,14 +19,14 @@ function start_page($title, $description): void
             <?php include '../../_assets/styles/layout.css';?>
         </style>
         <script>
-            <?php require_once("../../_assets/javascript/layout.js");?>
+            <?php require_once "../../_assets/javascript/layout.js";?>
         </script>
         <meta charset="UTF-8">
-        <meta name="description" content=<?php echo $description; ?>>
+        <meta name="description" content=<?php echo $this->description; ?>>
         <meta name="keywords" content="Tenrac, tenders, poulet, raclette, secte">
         <meta name="author" content="KERBADOU Islem, ODERZO Flavio, TRAN Thomas, ALVARES Titouan, AVIAS Daphné">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title><?php echo $title; ?></title>
+        <title><?= $this->title; ?></title>
     </head>
     <body>
     <header>
@@ -54,15 +61,9 @@ function start_page($title, $description): void
         </div>
     </header>
 <?php
-}
-?>
+    }
 
-<?php
-/*
- * Fonction permettant la création du pied de page
-*/
-function end_page(): void
-{
+    public function renderBottom(): void {
 ?>
     <footer>
         <div class="apropos">
@@ -80,5 +81,6 @@ function end_page(): void
     </body>
     </html>
 <?php
+    }
 }
 ?>
