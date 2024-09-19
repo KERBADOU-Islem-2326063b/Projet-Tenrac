@@ -1,5 +1,5 @@
 <?php
-    require '../../_assets/includes/layout.php'
+require '../../_assets/includes/layout.php'
 ?>
 
 <?php
