@@ -16,10 +16,10 @@ class Layout {
     <html lang="fr">
     <head>
         <style>
-            <?php include '../../_assets/styles/layout.css';?>
+            <?php include '_assets/styles/layout.css';?>
         </style>
         <script>
-            <?php require_once "../../_assets/javascript/layout.js";?>
+            <?php require_once "_assets/javascript/layout.js";?>
         </script>
         <meta charset="UTF-8">
         <meta name="description" content=<?php echo $this->description; ?>>

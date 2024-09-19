@@ -40,10 +40,12 @@ class Router {
 
 $router = new Router($_SERVER['REQUEST_URI']);
 $router->get('/', function(){ (new \Blog\Controllers\Homepage())->show(); });
-$router->get('/bonjour', function(){ echo "BONJOUR !!"; });
+$router->get('/homepage', function(){ (new \Blog\Controllers\Homepage())->show();  });
+$router->get('/bonjour', function(){ echo 'Bonjour'; });
 try {
     $router->run();
 } catch (RouterException $e) {
     echo $e->getMessage();
+    return;
 }
 ?>
