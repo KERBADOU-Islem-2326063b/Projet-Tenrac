@@ -1,25 +1,37 @@
 <?php
-/*
- * Fonction permettant la création d'un début de page
-*/
-function start_page($title, $description): void
-{
+namespace Blog\Views;
+/**
+ * Classe du layout du site
+ */
+class Layout {
+    private string $title;
+    private string $description;
+    public function __construct(string $title, string $description) {
+        $this->title = $title;
+        $this->description = $description;
+    }
+
+    /**
+     * Affichage du rendu du menu supérieur du layout
+     * @return void
+     */
+    public function renderTop(): void {
 ?>
     <!DOCTYPE html>
     <html lang="fr">
     <head>
         <style>
-            <?php include '../../_assets/styles/layout.css';?>
+            <?php include '_assets/styles/layout.css';?>
         </style>
         <script>
-            <?php require_once("../../_assets/javascript/layout.js");?>
+            <?php require_once "_assets/javascript/layout.js";?>
         </script>
         <meta charset="UTF-8">
-        <meta name="description" content=<?php echo $description; ?>>
+        <meta name="description" content=<?php echo $this->description; ?>>
         <meta name="keywords" content="Tenrac, tenders, poulet, raclette, secte">
         <meta name="author" content="KERBADOU Islem, ODERZO Flavio, TRAN Thomas, ALVARES Titouan, AVIAS Daphné">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title><?php echo $title; ?></title>
+        <title><?= $this->title; ?></title>
     </head>
     <body>
     <header>
@@ -41,7 +53,7 @@ function start_page($title, $description): void
                     <span></span>
                   </span>
             </a>
-            <img src="https://i.imgur.com/FR6znMh.png" width="200px" height="80%" class="logo">
+            <img alt="Logo des tenracs" src="https://i.imgur.com/FR6znMh.png" width="200px" height="80%" class="logo">
             <ul class="menu">
                 <li><a class="a-header" href="#">REPAS</a></li>
                 <li><a class="a-header" href="#">PLATS</a></li>
@@ -50,19 +62,17 @@ function start_page($title, $description): void
             </ul>
         </div>
         <div class = "header-right">
-            <a href="#"><img src="https://i.imgur.com/Uw4eL5a.png" width="40px" height="38px" class="logo"></a>
+            <a href="#"><img alt="Icone de connexion" src="https://i.imgur.com/Uw4eL5a.png" width="40px" height="38px" class="logo"></a>
         </div>
     </header>
 <?php
-}
-?>
+    }
 
-<?php
-/*
- * Fonction permettant la création du pied de page
-*/
-function end_page(): void
-{
+    /**
+     * Rendu de la partie basse du layout
+     * @return void
+     */
+    public function renderBottom(): void {
 ?>
     <footer>
         <div class="apropos">
@@ -70,9 +80,9 @@ function end_page(): void
             <p><strong>Email :</strong> tenrac@poulet.fr</p>
             <p><strong>Téléphone :</strong> 06.12.34.56.78</p>
             <div>
-                <a href="#"><img src="https://imgur.com/0kZm59H.png" width="35px" height="80%"></a>
-                <a href="#"><img src="https://imgur.com/CTTXkU7.png" width="35px" height="80%"></a>
-                <a href="#"><img src="https://imgur.com/QwF9yiJ.png" width="35px" height="80%"></a>
+                <a href="#"><img alt="Redirection Instagram" src="https://imgur.com/0kZm59H.png" width="35px" height="80%"></a>
+                <a href="#"><img alt="Redirection Twitter" src="https://imgur.com/CTTXkU7.png" width="35px" height="80%"></a>
+                <a href="#"><img alt="Redirection Facebook" src="https://imgur.com/QwF9yiJ.png" width="35px" height="80%"></a>
             </div>
         </div>
         <p class="copyright">© Copyright 2024 Tenrac - All Rights Reserved.</p>
@@ -80,5 +90,6 @@ function end_page(): void
     </body>
     </html>
 <?php
+    }
 }
 ?>

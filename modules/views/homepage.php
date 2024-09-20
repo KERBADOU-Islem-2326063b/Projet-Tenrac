@@ -1,15 +1,17 @@
 <?php
-require '../../_assets/includes/layout.php'
-?>
+namespace Blog\Views;
 
-<?php
-    start_page('Home', 'Bienvenue dans la page d\'accueil de notre magnifique site web !');
-?>
+/**
+ * Vue de la première page
+ */
+class Homepage {
+    /**
+     * Rendu du contenu centrale de la première page
+     * @return void
+     */
+    public function showView(): void
+    {
+        echo "test!! bien joué";
+    }
 
-<main>
-    <p>TEST !!!!</p>
-</main>
-
-<?php
-    end_page();
-?>
+}

@@ -4,18 +4,26 @@ class Autoloader {
     /**
      * Enregistre l'autoloader
      */
-    static function register(){
+    static function register(): void
+    {
         spl_autoload_register(array(__CLASS__, 'autoload'));
     }
 
     /**
      * Inclut le fichier de la classe correspondante
      */
-    static function autoload($class){
-        if(strpos($class, 'Exception')){
-            require '_assets/includes/exceptions/'.$class.'.php';
+    static function autoload($class): void
+    {
+        if(str_contains($class, 'Blog')){
+            $filename = strtolower(str_replace('\\', '/', $class));
+            $filename = str_replace('blog/', '', $filename);
+            require 'modules/' . $filename . '.php';
         } else {
-            require '_assets/includes/'.$class.'.php';
+            if (strpos($class, 'Exception')) {
+                require '_assets/includes/exceptions/' . $class . '.php';
+            } else {
+                require '_assets/includes/' . $class . '.php';
+            }
         }
     }
 }
