@@ -10,6 +10,11 @@ class Layout {
         $this->title = $title;
         $this->description = $description;
     }
+
+    /**
+     * Affichage du rendu du menu supérieur du layout
+     * @return void
+     */
     public function renderTop(): void {
 ?>
     <!DOCTYPE html>
@@ -63,6 +68,10 @@ class Layout {
 <?php
     }
 
+    /**
+     * Rendu de la partie basse du layout
+     * @return void
+     */
     public function renderBottom(): void {
 ?>
     <footer>

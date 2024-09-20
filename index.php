@@ -21,9 +21,10 @@ class Router {
     /**
      * Cherche la page correspondante au lien demandé
      * à partir de toutes les routes possibles
+     * @return Route objet route correspondante à l'URI entrée
      * @throws RouterException si erreur il y a
      */
-    public function run(){
+    public function run(): Route{
         if(!isset($this->routes[$_SERVER['REQUEST_METHOD']])){
             throw new RouterException("REQUEST_mETHOD n'existe pas");
         }
@@ -38,6 +39,9 @@ class Router {
     }
 }
 
+/**
+ * Initialisation du routage des URI
+ */
 $router = new Router($_SERVER['REQUEST_URI']);
 $router->get('/', function(){ (new \Blog\Controllers\Homepage())->show(); });
 $router->get('/homepage', function(){ (new \Blog\Controllers\Homepage())->show();  });
