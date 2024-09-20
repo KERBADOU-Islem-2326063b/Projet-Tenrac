@@ -1,6 +1,11 @@
 <?php
 namespace Blog\Controllers;
 
+use Blog\Views\Layout;
+
+/**
+ * Controlleur de la première page vitrine
+ */
 class Homepage {
     public function show(): void {
         $title = "Page d'accueil";
@@ -8,7 +13,7 @@ class Homepage {
 
         $view = new \Blog\Views\Homepage();
 
-        $layout = new \Blog\Views\Layout($title, $description);
+        $layout = new Layout($title, $description);
         $layout->renderTop();
         $view->showView();
         $layout->renderBottom();

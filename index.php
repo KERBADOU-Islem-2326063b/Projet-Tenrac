@@ -6,8 +6,8 @@ Autoloader::register();
  * Classe du routeur du site
  */
 class Router {
-    private $url;
-    private $routes = [];
+    private string $url;
+    private array $routes = [];
     public function __construct($url) {
         $this->url = $url;
     }

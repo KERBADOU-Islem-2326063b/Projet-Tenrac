@@ -4,14 +4,16 @@ class Autoloader {
     /**
      * Enregistre l'autoloader
      */
-    static function register(){
+    static function register(): void
+    {
         spl_autoload_register(array(__CLASS__, 'autoload'));
     }
 
     /**
      * Inclut le fichier de la classe correspondante
      */
-    static function autoload($class){
+    static function autoload($class): void
+    {
         if(str_contains($class, 'Blog')){
             $filename = strtolower(str_replace('\\', '/', $class));
             $filename = str_replace('blog/', '', $filename);
