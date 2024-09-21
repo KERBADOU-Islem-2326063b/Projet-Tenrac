@@ -14,10 +14,12 @@ class Login {
     public function show(): void {
         $title = "Page d'accueil";
         $description = "Site officel des Tenrac";
+        $cssFilePath = '_assets/styles/login.css';
+        $jsFilePath = '';
 
         $view = new \Blog\Views\Login();
 
-        $layout = new Layout($title, $description);
+        $layout = new Layout($title, $description, $cssFilePath, $jsFilePath);
         $layout->renderTop();
         $view->showView();
         $layout->renderBottom();

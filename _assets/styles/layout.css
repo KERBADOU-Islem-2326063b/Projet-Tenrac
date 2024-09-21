@@ -10,6 +10,11 @@ body {
     flex-direction: column;
     margin: 0;
     padding: 0;
+    justify-content: space-between;
+    font-family: sans-serif;
+    line-height: 1.5;
+    min-height: 100vh;
+    background: #f3f3f3;
 }
 
 header {
@@ -43,8 +48,11 @@ header {
 }
 
 main {
-    background-color: #eee;
     flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 16px;
 }
 
 /** Debut footer **/
