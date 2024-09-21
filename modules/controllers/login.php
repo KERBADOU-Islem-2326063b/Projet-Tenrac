@@ -2,18 +2,12 @@
 namespace Blog\Controllers;
 
 use Blog\Views\Layout;
-use Blog\Models\Login as LoginModel;
+use Database;
 
 /**
  * Contrôleur de la page de connexion
  */
 class Login {
-
-    private LoginModel $loginModel;
-
-    public function __construct(LoginModel $loginModel) {
-        $this->loginModel = $loginModel;
-    }
 
     /**
      * Liaison entre la vue et le layout et affichage
@@ -29,8 +23,10 @@ class Login {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $usernameLogs = $_POST['first'] ?? '';
             $passwordLogs = $_POST['password'] ?? '';
+            $db = new Database();
+            $loginModel = new \Blog\Models\Login($db);
 
-            if ($this->loginModel->doLogsExist($usernameLogs, $passwordLogs)) {
+            if ($loginModel->doLogsExist($usernameLogs, $passwordLogs)) {
                 header('Location: /account');
                 exit();
             } else {

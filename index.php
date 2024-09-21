@@ -51,15 +51,11 @@ $router->get('/', function(){ (new \Blog\Controllers\Homepage())->show(); });
 $router->get('/homepage', function(){ (new \Blog\Controllers\Homepage())->show();  });
 $router->get('/hello', function(){ echo 'Bonjour'; });
 $router->get('/login', function() {
-    $db = new Database();
-    $loginModel = new \Blog\Models\Login($db);
-    (new \Blog\Controllers\Login($loginModel))->show();
+    (new \Blog\Controllers\Login())->show();
 });
 
 $router->post('/login', function() {
-    $db = new Database();
-    $loginModel = new \Blog\Models\Login($db);
-    (new \Blog\Controllers\Login($loginModel))->show();
+    (new \Blog\Controllers\Login())->show();
 });
 
 try {
