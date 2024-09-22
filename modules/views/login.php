@@ -2,7 +2,7 @@
 namespace Blog\Views;
 
 /**
- * Classe de la vue de la page de connexion
+ * Vue de la page de connexion
  */
 class Login {
     private ?string $errorMessage;
@@ -35,7 +35,7 @@ class Login {
                     <input type="password" id="password" name="password" placeholder="Entrez votre mot de passe" required>
 
                     <div class="wrap">
-                        <button type="submit" name="action" id="user">Se Connecter</button>
+                        <button type="submit" name="login" id="user">Se Connecter</button>
                     </div>
                 </form>
             </div>

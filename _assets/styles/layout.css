@@ -45,6 +45,7 @@ header {
 .header-right{
     display: flex;
     align-items: center;
+    color: #C76E00;
 }
 
 main {
@@ -144,7 +145,7 @@ li {
 }
 
 
-@media (max-width: 800px) {
+@media (max-width: 1050px) {
     .menu {
         display: none;
     }
@@ -160,4 +161,19 @@ li {
         background-color: orange;
         margin: 6px 0;
     }
+}
+
+/* Généralités */
+
+button {
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    background-color: orange;
+    width: 12em;
+    font-size: 16px;
 }

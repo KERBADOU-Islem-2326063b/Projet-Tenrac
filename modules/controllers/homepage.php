@@ -13,9 +13,9 @@ class Homepage {
      * Pas de liaison avec un contrôleur, la page étant statique
      */
     public function show(): void {
-        $title = "Page d'accueil";
-        $description = "Site officel des Tenrac";
-        $cssFilePath = '';
+        $title = "Accueil";
+        $description = "Site officiel des Tenrac";
+        $cssFilePath = '_assets/styles/homepage.css';
         $jsFilePath = '';
 
         $view = new \Blog\Views\Homepage();

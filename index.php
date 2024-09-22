@@ -44,6 +44,14 @@ class Router {
 }
 
 /**
+ * Initialisation de la session qu'importe le header
+ */
+session_start();
+if (!isset($_SESSION['id_tenrac'])) {
+    $_SESSION['id_tenrac'] = '';
+}
+
+/**
  * Initialisation du routage des URI
  */
 $router = new Router($_SERVER['REQUEST_URI']);
@@ -56,6 +64,12 @@ $router->get('/login', function() {
 
 $router->post('/login', function() {
     (new \Blog\Controllers\Login())->show();
+});
+
+$router->get('/account', function(){ (new \Blog\Controllers\Account())->show();  });
+
+$router->post('/account', function() {
+    (new \Blog\Controllers\Account())->show();
 });
 
 try {
