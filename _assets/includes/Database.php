@@ -3,10 +3,10 @@
  * Classe s'occupant de la connexion à la base de données
  */
 class Database {
-    private string $host = "mysql-tenrac.alwaysdata.net";
-    private string $user = "tenrac_db";
-    private string $pass = "JdozlVeieo628hK";
-    private string $dbname = "tenrac_db";
+    private string $host = "mysql-tenrac2.alwaysdata.net";
+    private string $user = "tenrac2";
+    private string $pass = "i1gtoZZRkf1Xm6";
+    private string $dbname = "tenrac2_db";
     private PDO $conn;
 
     /**
@@ -17,7 +17,6 @@ class Database {
         try {
             $this->conn = new PDO("mysql:host=$this->host;dbname=$this->dbname", $this->user, $this->pass);
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            echo "Connexion réussie";
         } catch (PDOException $e) {
             echo "Erreur de connexion: " . $e->getMessage();
         }

@@ -53,6 +53,7 @@ class Layout {
                     <li><a class="a-header" href="#">PLATS</a></li>
                     <li><a class="a-header" href="#">CONNEXION</a></li>
                     <li><a class="a-header" href="#">L'ORDRE</a></li>
+                    <li><a class="a-header" href="/account">MON COMPTE</a></li>
                 </ul>
             </div>
 
@@ -67,12 +68,14 @@ class Layout {
             <ul class="menu">
                 <li><a class="a-header" href="#">REPAS</a></li>
                 <li><a class="a-header" href="#">PLATS</a></li>
-                <li><a class="a-header" href="#">CONNEXION</a></li>
+                <li><a class="a-header" href="/login">CONNEXION</a></li>
                 <li><a class="a-header" href="#">L'ORDRE</a></li>
+                <li><a class="a-header" href="/account">MON COMPTE</a></li>
             </ul>
         </div>
         <div class = "header-right">
-            <a href="#"><img alt="Icone de connexion" src="https://i.imgur.com/Uw4eL5a.png" width="40px" height="38px" class="logo"></a>
+            <?php echo $_SESSION['id_tenrac'];?>
+            <img alt="Icone de connexion" src="https://i.imgur.com/Uw4eL5a.png" width="40px" height="38px" class="logo">
         </div>
     </header>
 <?php

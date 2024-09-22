@@ -11,24 +11,44 @@ class Login {
         $this->db = $db;
     }
 
-    public function doLogsExist($usernameLogs, $passwordLogs): bool {
-        if (empty($usernameLogs) || empty($passwordLogs)) {
+    public function doLogsExist(string $id_tenrac, string $passwordLogs): bool {
+        if (empty($id_tenrac) || empty($passwordLogs)) {
             return false;
         }
 
         $db = $this->db;
-        $query = 'SELECT password FROM user WHERE username = :username';
+        $query = 'SELECT mdp_tenrac FROM users WHERE id_tenrac = :id_tenrac';
         $stmt = $db->getConn()->prepare($query);
-        $stmt->bindParam(':username', $usernameLogs);
+        $stmt->bindParam(':id_tenrac', $id_tenrac);
         $stmt->execute();
 
         $result = $stmt->fetch($db->getConn()::FETCH_ASSOC);
 
-        if ($result && isset($result['password'])) {
-            return password_verify($passwordLogs, $result['password']);
+        echo $passwordLogs;
+        if ($result && isset($result['mdp_tenrac'])) {
+            echo $result['mdp_tenrac'];
+            if (password_verify($passwordLogs, $result['mdp_tenrac'])) {
+                return true;
+            };
         }
 
         return false;
+    }
+
+    public function returnAll(string $id_tenrac) {
+        $db = $this->db;
+        $query = 'SELECT * FROM users WHERE id_tenrac = :id_tenrac';
+        $stmt = $db->getConn()->prepare($query);
+        $stmt->bindParam(':$id_tenrac', $id_tenrac, $db->getConn()::PARAM_INT);
+        $stmt->execute();
+
+        $result = $stmt->fetch($db->getConn()::FETCH_ASSOC);
+
+        if ($result) {
+            return $result;
+        }
+
+        return null;
     }
 }
 ?>

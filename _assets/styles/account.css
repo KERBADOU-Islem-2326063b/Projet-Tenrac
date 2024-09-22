@@ -1,6 +1,7 @@
 @import "layout.css";
+@import "login.css";
 
-.loginForm {
+.accountInformations {
     background-color: #fff;
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
@@ -22,22 +23,4 @@ label {
     text-align: left;
     color: #555;
     font-weight: bold;
-}
-
-
-input {
-    display: block;
-    width: 100%;
-    margin-bottom: 15px;
-    padding: 10px;
-    box-sizing: border-box;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-
-.wrap {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
