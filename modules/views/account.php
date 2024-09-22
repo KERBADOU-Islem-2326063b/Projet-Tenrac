@@ -36,13 +36,13 @@ class Account {
         <main>
             <div class="accountInfo">
                 <h1><strong><?php echo 'Bonjour ' . $this->Nom?></strong></h1>
-                <label><?php echo 'Courriel: ' . $this->courriel?></label>
-                <label><?php echo 'Adresse Postal: ' . $this->adresse_postal?></label>
-                <label><?php echo 'Numéro de Téléphone: ' . $this->num_tel?></label>
-                <label><?php echo 'Grade: ' . $this->grade?></label>
-                <label><?php echo 'Rang: ' . $this->rang?></label>
-                <label><?php echo 'Titre: ' . $this->titre?></label>
-                <label><?php echo 'Dignite: ' . $this->dignite?></label>
+                <p><?php echo '<strong>Courriel:</strong> ' . $this->courriel?></p>
+                <p><?php echo '<strong>Adresse Postal:</strong> ' . $this->adresse_postal?></p>
+                <p><?php echo '<strong>Numéro de Téléphone:</strong> ' . $this->num_tel?></p>
+                <p><?php echo '<strong>Grade:</strong> ' . $this->grade?></p>
+                <p><?php echo '<strong>Rang:</strong> ' . $this->rang?></p>
+                <p><?php echo '<strong>Titre:</strong> ' . $this->titre?></p>
+                <p><?php echo '<strong>Dignite:</strong> ' . $this->dignite?></p>
 
                 <form action="./account" method="post">
                     <button type="submit" name="logout" id="user">Se Déconnecter</button>

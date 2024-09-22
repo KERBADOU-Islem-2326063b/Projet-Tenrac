@@ -1,0 +1,30 @@
+:root {
+    /* Couleurs */
+    --main-color: orange;
+    --secondary-color: #C76E00;
+    --tertiary-color: #f3f3f3;
+    --background-color: white;
+    --hover-color: orange;
+    --text-color: #818181;
+
+    /* Polices */
+    --main-family: "Noto Sans Devanagari Condensed SemiBold";
+
+    /* Espacements */
+    --small-spacing: 4px;
+    --medium-spacing: 12px;
+    --large-spacing: 18px;
+
+    /* Tailles de police */
+    --font-small: 0.75em;
+    --font-medium: 1em;
+    --font-large: 1.2em;
+
+    /* Bouttons */
+    --button-radius: 10px;
+    --button-padding: 15px;
+    --button-width: 12em;
+
+    /* Sidenav, menu Hambuger */
+    --sidenav-width: 250px;
+}
