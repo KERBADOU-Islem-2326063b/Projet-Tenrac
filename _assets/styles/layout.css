@@ -1,3 +1,5 @@
+@import "global.css";
+
 html, body {
     height: 100%;
     width: 100%;
@@ -8,33 +10,31 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
-    margin: 0;
-    padding: 0;
     justify-content: space-between;
     font-family: sans-serif;
     line-height: 1.5;
     min-height: 100vh;
-    background: #f3f3f3;
+    background: var(--tertiary-color);
 }
 
+/* Header */
 header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border: 4px solid orange;
+    border: 4px solid var(--main-color);
     height: 5em;
     padding: 0 18px;
-    font-size: 18px;
-    font-family: "Noto Sans Devanagari Condensed SemiBold", sans-serif;
-    background-color: white;
-
+    font-size: var(--font-large);
+    font-family: var(--main-family), sans-serif;
+    background-color: var(--background-color);
     position: sticky;
     top: 0;
     z-index: 999;
 }
 
 .a-header {
-    color: orange;
+    color: var(--main-color);
 }
 
 .header-left {
@@ -42,10 +42,10 @@ header {
     align-items: center;
 }
 
-.header-right{
+.header-right {
     display: flex;
     align-items: center;
-    color: #C76E00;
+    color: var(--secondary-color);
 }
 
 main {
@@ -53,74 +53,91 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 16px;
+    margin: var(--medium-spacing);
 }
 
-/** Debut footer **/
+/** Footer **/
 footer {
-    border-top:3px solid black;
-    background-color: #FFC067;
     display: flex;
     flex-direction: column;
-    font-size: 0.75em;
+    align-items: center;
+    justify-content: center;
+    border-top: 3px solid black;
+    background-color: #FFC067;
+    font-size: var(--font-small);
 }
 
-.apropos {
-    display:flex;
+footer p {
+    margin: var(--small-spacing);
+    padding: 0;
+    max-width: 85%;
+}
+
+.social-icons {
+    display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    flex-wrap: wrap;
 }
 
-.copyright {
-    text-align:center;
-
-}
-/**Fin footer **/
-
+/** Images **/
 img {
-    margin: 4px;
+    margin: var(--small-spacing);
+    vertical-align: middle;
 }
 
+/** Liens **/
 ul {
     list-style-type: none;
 }
 
 a {
     text-decoration: none;
-    font-size: 1em;
+    font-size: var(--font-medium);
 }
 
 li {
     float: left;
-    padding: 1em;
+    padding: 15px;
 }
 
-/* MENU HAMBURGER */
+/** Boutons **/
+button {
+    padding: var(--button-padding);
+    border-radius: var(--button-radius);
+    margin-top: var(--button-padding);
+    margin-bottom: var(--button-padding);
+    border: none;
+    color: white;
+    cursor: pointer;
+    background-color: var(--main-color);
+    width: var(--button-width);
+    font-size: var(--font-medium);
+}
 
+
+/** Menu Hamburger **/
 .sidenav {
     height: 100%;
-    width: 250px;
+    width: var(--sidenav-width);
     position: fixed;
     z-index: 1;
     top: 0;
-    left: -250px;
+    left: calc(-1 * var(--sidenav-width));
     background-color: #e8e8e8;
     padding-top: 60px;
     transition: left 0.5s ease;
 }
 
 .sidenav a {
-    padding: 8px 8px 8px 32px;
+    padding: var(--small-spacing) 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
-    color: #818181;
+    color: var(--text-color);
     display: block;
     transition: 0.3s;
 }
 
 .sidenav a:hover {
-    color: #111;
+    color: var(--hover-color);
 }
 
 .sidenav ul {
@@ -140,10 +157,10 @@ li {
     font-size: 36px;
 }
 
+/** Burger Icon **/
 .burger-icon span {
     display: none;
 }
-
 
 @media (max-width: 1050px) {
     .menu {
@@ -158,22 +175,7 @@ li {
         display: block;
         width: 35px;
         height: 5px;
-        background-color: orange;
-        margin: 6px 0;
+        background-color: var(--main-color);
+        margin: var(--small-spacing) 0;
     }
-}
-
-/* Généralités */
-
-button {
-    padding: 15px;
-    border-radius: 10px;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    border: none;
-    color: white;
-    cursor: pointer;
-    background-color: orange;
-    width: 12em;
-    font-size: 16px;
 }

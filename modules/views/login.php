@@ -29,10 +29,10 @@ class Login {
                 <?php endif; ?>
                 <form action="./login" method="post">
                     <label for="first">Pseudo</label>
-                    <input type="text" id="first" name="first" maxlength="20" placeholder="Entrez votre pseudo" required>
+                    <input type="text" id="first" name="first" maxlength="50" placeholder="Entrez votre pseudo" required>
 
                     <label for="password">Mot de passe</label>
-                    <input type="password" id="password" name="password" maxlength="20" placeholder="Entrez votre mot de passe" required>
+                    <input type="password" id="password" name="password" maxlength="50" placeholder="Entrez votre mot de passe" required>
 
                     <div class="wrap">
                         <button type="submit" name="login" id="user">Se Connecter</button>

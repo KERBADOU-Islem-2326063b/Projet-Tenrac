@@ -1,40 +1,41 @@
 @import "layout.css";
 
-.loginForm {
-    background-color: #fff;
+.loginForm,
+.accountInfo {
+    background-color: var(--background-color);
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    padding: 10px 20px;
+    padding: var(--large-spacing);
     transition: transform 0.2s;
     width: 36em;
     text-align: center;
 }
 
-h1 {
-    color: orange;
-}
-
-label {
+label,
+.loginForm p,
+.accountInfo p {
     display: block;
     width: 100%;
-    margin-top: 10px;
-    margin-bottom: 5px;
+    margin-top: var(--small-spacing);
+    margin-bottom: var(--small-spacing);
     text-align: left;
     color: #555;
     font-weight: bold;
 }
 
+h1 {
+    color: var(--main-color);
+}
 
 input {
     display: block;
     width: 100%;
-    margin-bottom: 15px;
-    padding: 10px;
+    margin-bottom: var(--medium-spacing);
+    padding: 8px;
     box-sizing: border-box;
     border: 1px solid #ddd;
     border-radius: 5px;
 }
-
 
 .wrap {
     display: flex;

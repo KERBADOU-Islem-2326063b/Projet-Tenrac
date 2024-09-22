@@ -1,25 +1,5 @@
 @import "login.css";
 
-.accountInfo {
-    background-color: #fff;
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    padding: 10px 20px;
-    transition: transform 0.2s;
-    width: 36em;
-    text-align: center;
-}
-
-h1 {
-    color: orange;
-}
-
-label {
-    display: block;
-    width: 100%;
-    margin-top: 10px;
-    margin-bottom: 5px;
-    text-align: left;
-    color: #555;
-    font-weight: bold;
+.accountInfo p {
+    font-weight: normal;
 }

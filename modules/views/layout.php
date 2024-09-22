@@ -35,7 +35,8 @@ class Layout {
         <meta name="keywords" content="Tenrac, tenders, poulet, raclette, secte">
         <meta name="author" content="KERBADOU Islem, ODERZO Flavio, TRAN Thomas, ALVARES Titouan, AVIAS Daphné">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>"<?php echo $this->title; ?></title>
+        <link rel="icon" href="https://i.imgur.com/yoJJvM6.png" />
+        <title><?php echo $this->title; ?></title>
     </head>
     <body>
     <header>
@@ -45,12 +46,11 @@ class Layout {
                 <ul id = "menu">
                     <li><a class="a-header" href="#">REPAS</a></li>
                     <li><a class="a-header" href="#">PLATS</a></li>
-                    <li><a class="a-header" href="#">CONNEXION</a></li>
+                    <li><a class="a-header" href="/login">CONNEXION</a></li>
                     <li><a class="a-header" href="#">L'ORDRE</a></li>
                     <li><a class="a-header" href="/account">MON COMPTE</a></li>
                 </ul>
             </div>
-
             <a href="#" id="openBtn">
                   <span class="burger-icon">
                     <span></span>
@@ -58,7 +58,7 @@ class Layout {
                     <span></span>
                   </span>
             </a>
-            <img alt="Logo des tenracs" src="https://i.imgur.com/FR6znMh.png" width="200" height="65" class="logo">
+            <a href="/homepage"><img alt="Logo des tenracs" src="https://i.imgur.com/FR6znMh.png" width="220" height="65" class="logo"></a>
             <ul class="menu">
                 <li><a class="a-header" href="#">REPAS</a></li>
                 <li><a class="a-header" href="#">PLATS</a></li>
@@ -82,17 +82,8 @@ class Layout {
     public function renderBottom(): void {
 ?>
     <footer>
-        <div class="apropos">
-            <p><strong>Adresse :</strong> 105 rue de la raclette, 1934 Bagnes, Suisse. </p>
-            <p><strong>Email :</strong> tenrac@poulet.fr</p>
-            <p><strong>Téléphone :</strong> 06.12.34.56.78</p>
-            <div>
-                <a href="#"><img alt="Redirection Instagram" src="https://i.imgur.com/0kZm59H.png" width="35" height="40"></a>
-                <a href="#"><img alt="Redirection Twitter" src="https://i.imgur.com/CTTXkU7.png" width="35" height="40"></a>
-                <a href="#"><img alt="Redirection Facebook" src="https://i.imgur.com/QwF9yiJ.png" width="35" height="40"></a>
-            </div>
-        </div>
         <p class="copyright">© Copyright 2024 Tenrac - All Rights Reserved.</p>
+        <p><strong>Adresse :</strong> 105 rue de la raclette, 1934 Bagnes, Suisse. - <strong>Email :</strong> tenrac@poulet.fr - <strong>Téléphone :</strong> 06.12.34.56.78</p>
     </footer>
     </body>
     </html>
