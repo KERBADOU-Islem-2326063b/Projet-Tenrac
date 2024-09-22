@@ -15,10 +15,12 @@ class Homepage {
     public function show(): void {
         $title = "Page d'accueil";
         $description = "Site officel des Tenrac";
+        $cssFilePath = '';
+        $jsFilePath = '';
 
         $view = new \Blog\Views\Homepage();
 
-        $layout = new Layout($title, $description);
+        $layout = new Layout($title, $description, $cssFilePath, $jsFilePath);
         $layout->renderTop();
         $view->showView();
         $layout->renderBottom();
