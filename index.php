@@ -44,10 +44,10 @@ class Router {
 }
 
 /**
- * Initialisation de la session
+ * Initialisation de la session qu'importe le header
  */
 session_start();
-if (!$_SESSION['id_tenrac']) {
+if (!isset($_SESSION['id_tenrac'])) {
     $_SESSION['id_tenrac'] = '';
 }
 

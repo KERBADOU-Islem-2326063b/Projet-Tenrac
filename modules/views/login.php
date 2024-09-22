@@ -2,7 +2,7 @@
 namespace Blog\Views;
 
 /**
- * Classe de la vue de la page de connexion
+ * Vue de la page de connexion
  */
 class Login {
     private ?string $errorMessage;

@@ -3,6 +3,9 @@ namespace Blog\Models;
 
 use Database;
 
+/**
+ * Modèle de la page dédié aux informations du compte courant
+ */
 class Account {
 
     private Database $db;

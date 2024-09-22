@@ -1,3 +1,6 @@
+/**
+ * Gestion du menu hamburger (pour tablette/téléphone) du site web qui se situe au header.
+ */
 window.onload = function(){
     const sidenav = document.getElementById("mySidenav");
     const openBtn = document.getElementById("openBtn");

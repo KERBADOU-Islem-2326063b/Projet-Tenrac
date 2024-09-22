@@ -14,7 +14,7 @@ class Homepage {
      */
     public function show(): void {
         $title = "Accueil";
-        $description = "Site officel des Tenrac";
+        $description = "Site officiel des Tenrac";
         $cssFilePath = '_assets/styles/homepage.css';
         $jsFilePath = '';
 

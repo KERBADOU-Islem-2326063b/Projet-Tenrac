@@ -5,13 +5,13 @@ use Blog\Views\Layout;
 use Database;
 
 /**
- * Controlleur de la première page vitrine
+ * Controlleur de la page dédié aux informations du compte courant
  */
 class Account {
 
     /**
      * Liaison entre la vue et le layout et affichage
-     * Pas de liaison avec un contrôleur, la page étant statique
+     * Récupération des informations du compte courant
      */
     public function show(): void {
 

@@ -2,13 +2,9 @@
 namespace Blog\Views;
 
 /**
- * Vue de la première page
+ * Vue de la page dédiée aux informations du compte courant
  */
 class Account {
-    /**
-     * Rendu du contenu de la page d'informations du compte
-     * @return void
-     */
 
     private string $Nom;
     private string $courriel;
@@ -31,10 +27,14 @@ class Account {
         $this->dignite = $dignite;
     }
 
+    /**
+     * Rendu du contenu de la page d'informations du compte
+     * @return void
+     */
     public function showView(): void {
         ?>
         <main>
-            <div class="accountInformations">
+            <div class="accountInfo">
                 <h1><strong><?php echo 'Bonjour ' . $this->Nom?></strong></h1>
                 <label><?php echo 'Courriel: ' . $this->courriel?></label>
                 <label><?php echo 'Adresse Postal: ' . $this->adresse_postal?></label>

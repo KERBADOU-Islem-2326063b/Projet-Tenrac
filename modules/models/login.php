@@ -3,6 +3,9 @@ namespace Blog\Models;
 
 use Database;
 
+/**
+ * Modèle de la page dédié à la connexion
+ */
 class Login {
 
     private Database $db;

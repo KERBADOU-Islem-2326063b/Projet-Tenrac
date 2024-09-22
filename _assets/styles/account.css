@@ -1,7 +1,6 @@
-@import "layout.css";
 @import "login.css";
 
-.accountInformations {
+.accountInfo {
     background-color: #fff;
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
