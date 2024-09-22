@@ -8,7 +8,6 @@ class Database {
     private string $pass = "JdozlVeieo628hK";
     private string $dbname = "tenrac_db";
     private PDO $conn;
-
     /**
      * Constructeur de la classe Database
      * Lors de la construction de l'objet Database, une tentative de connexion est faite vers la bd

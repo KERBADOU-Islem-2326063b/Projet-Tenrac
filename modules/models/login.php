@@ -27,7 +27,6 @@ class Login {
 
         $result = $stmt->fetch($db->getConn()::FETCH_ASSOC);
 
-        echo $passwordLogs;
         if ($result && isset($result['mdp_tenrac'])) {
             echo $result['mdp_tenrac'];
             if (password_verify($passwordLogs, $result['mdp_tenrac'])) {
