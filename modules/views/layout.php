@@ -47,7 +47,7 @@ class Layout {
                     <li><a class="a-header" href="#">REPAS</a></li>
                     <li><a class="a-header" href="#">PLATS</a></li>
                     <li><a class="a-header" href="/login">CONNEXION</a></li>
-                    <li><a class="a-header" href="#">L'ORDRE</a></li>
+                    <li><a class="a-header" href="/ordre">L'ORDRE</a></li>
                     <li><a class="a-header" href="/account">MON COMPTE</a></li>
                 </ul>
             </div>
@@ -63,7 +63,7 @@ class Layout {
                 <li><a class="a-header" href="#">REPAS</a></li>
                 <li><a class="a-header" href="#">PLATS</a></li>
                 <li><a class="a-header" href="/login">CONNEXION</a></li>
-                <li><a class="a-header" href="#">L'ORDRE</a></li>
+                <li><a class="a-header" href="/ordre">L'ORDRE</a></li>
                 <li><a class="a-header" href="/account">MON COMPTE</a></li>
             </ul>
         </div>

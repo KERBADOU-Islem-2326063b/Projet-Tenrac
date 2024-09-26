@@ -20,7 +20,7 @@ class Login {
         }
 
         $db = $this->db;
-        $query = 'SELECT mdp_tenrac FROM users WHERE id_tenrac = :id_tenrac';
+        $query = 'SELECT mdp_tenrac FROM membre WHERE id_tenrac = :id_tenrac';
         $stmt = $db->getConn()->prepare($query);
         $stmt->bindParam(':id_tenrac', $id_tenrac);
         $stmt->execute();
