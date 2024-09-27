@@ -62,6 +62,7 @@ $router->get('/account', function(){ (new \Blog\Controllers\Account())->show(); 
 $router->get('/login', function() {
     (new \Blog\Controllers\Login())->show();
 });
+$router->get('/members', function(){ (new \Blog\Controllers\Members())->show();  });
 
 $router->post('/homepage', function() {
     (new \Blog\Controllers\Homepage())->show();
