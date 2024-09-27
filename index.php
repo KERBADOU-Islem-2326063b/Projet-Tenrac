@@ -58,6 +58,8 @@ $router = new Router(strtok($_SERVER["REQUEST_URI"], '?'));
 $router->get('/', function(){ (new \Blog\Controllers\Homepage())->show(); });
 $router->get('/homepage', function(){ (new \Blog\Controllers\Homepage())->show();  });
 $router->get('/account', function(){ (new \Blog\Controllers\Account())->show();  });
+$router->get('/plats', function(){ ( new \Blog\Controllers\Plats())->show(); });
+
 $router->get('/login', function() {
     (new \Blog\Controllers\Login())->show();
 });

@@ -5,6 +5,12 @@ namespace Blog\Views;
  * Vue de la page des plats
  */
 class Plats {
+    private \Blog\Models\Plats $plat;
+
+    public function __construct(\Blog\Models\Plats $plat) {
+        $this->plat = $plat;
+    }
+
 
     /**
      * Affichage du rendu de la page
@@ -22,7 +28,7 @@ class Plats {
                          src="C:\Users\Daphné\OneDrive\Images\image.png"
                          alt="image du plat n°1">
 
-                    <p><b> Plat 1 </b></p>
+                    <p><b> <?php $this->plat->getPlats() ?> </b></p>
 
                     <p class="ingredient"> Ingrédients ingrédients ingrédient ingrédient ingrédient </p>
 
