@@ -58,15 +58,18 @@ $router = new Router($_SERVER['REQUEST_URI']);
 $router->get('/', function(){ (new \Blog\Controllers\Homepage())->show(); });
 $router->get('/homepage', function(){ (new \Blog\Controllers\Homepage())->show();  });
 $router->get('/hello', function(){ echo 'Bonjour'; });
+$router->get('/account', function(){ (new \Blog\Controllers\Account())->show();  });
 $router->get('/login', function() {
     (new \Blog\Controllers\Login())->show();
+});
+
+$router->post('/homepage', function() {
+    (new \Blog\Controllers\Homepage())->show();
 });
 
 $router->post('/login', function() {
     (new \Blog\Controllers\Login())->show();
 });
-
-$router->get('/account', function(){ (new \Blog\Controllers\Account())->show();  });
 
 $router->post('/account', function() {
     (new \Blog\Controllers\Account())->show();

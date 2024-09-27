@@ -5,13 +5,11 @@ namespace Blog\Views;
  * Vue de la page de connexion
  */
 class Login {
-    private ?string $errorMessage;
 
     /**
-     * @param string|null $errorMessage Message d'erreur pour l'affichage
+     * @param string $errorMessage Message d'erreur pour l'affichage
      */
-    public function __construct(?string $errorMessage = null) {
-        $this->errorMessage = $errorMessage;
+    public function __construct(private string $errorMessage) {
     }
 
     /**

@@ -21,6 +21,24 @@ class Database {
         }
     }
 
+    /**
+     * Méthode statique pour obtenir l'instance unique de la classe Database (singleton)
+     *
+     * @return Database
+     */
+    public static function getInstance(): Database {
+        static $instance = null;
+        if ($instance === null) {
+            $instance = new self();
+        }
+        return $instance;
+    }
+
+    /**
+     * Méthode pour récupérer la connexion PDO
+     *
+     * @return PDO
+     */
     public function getConn(): PDO {
         return $this->conn;
     }

@@ -6,25 +6,7 @@ namespace Blog\Views;
  */
 class Account {
 
-    private string $Nom;
-    private string $courriel;
-    private string $adresse_postal;
-    private string $num_tel;
-    private string $grade;
-    private string $rang;
-    private string $titre;
-    private string $dignite;
-
-
-    public function __construct(string $Nom, string $courriel, string $adresse_postal, string $num_tel, string $grade, string $rang, string $titre, string $dignite) {
-        $this->Nom = $Nom;
-        $this->courriel = $courriel;
-        $this->adresse_postal = $adresse_postal;
-        $this->num_tel = $num_tel;
-        $this->grade = $grade;
-        $this->rang  = $rang;
-        $this->titre = $titre;
-        $this->dignite = $dignite;
+    public function __construct(private string $Nom, private string $courriel, private string $adresse_postal, private string $num_tel, private string $grade, private string $rang, private string $titre, private string $dignite) {
     }
 
     /**
