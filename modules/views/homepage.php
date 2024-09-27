@@ -1,20 +1,20 @@
 <?php
 namespace Blog\Views;
-
-/**
- * Vue de la première page
- */
 class Homepage {
-    /**
-     * Rendu du contenu centrale de la première page
-     * @return void
-     */
-    public function showView(): void {
+    public function showView() {
         ?>
-        <main>
-            <h1>Ceci est un Test !</h1>
-        </main>
+<body>
+<div id="archs">
+    <div id="arch-down-left">
+        <p id="plefttop">"Quand le croquant rencontre le fondant" <br> </p>
+        <p id="prightbottom"> Savourer nos tenders croustillants recouverts d'une raclette fondante et parfumée... </p>
+    </div>
+    <div id="arch-down-right">
+        <p id="prighttop"> "Le petit plus qui fait la différence" <br> </p>
+        <p id="pleftbottom"> Dégustez nos tenracs accompagnés de nos sauces maison originales pour un voyage gustatif inoubliable... </p>
+    </div>
+</div>
+</body>
         <?php
     }
 }
-?>
