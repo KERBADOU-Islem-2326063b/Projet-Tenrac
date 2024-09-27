@@ -23,7 +23,7 @@ class Login {
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
             $usernameLogs = $_POST['first'] ?? '';
             $passwordLogs = $_POST['password'] ?? '';
-            $db = new Database();
+            $db = Database::getInstance();
             $loginModel = new \Blog\Models\Login($db);
 
             if ($loginModel->doLogsExist($usernameLogs, $passwordLogs)) {
@@ -37,8 +37,8 @@ class Login {
 
         $view = new \Blog\Views\Login($errorMessage);
 
-        $layout = new Layout($title, $description, $cssFilePath, $jsFilePath);
-        $layout->renderTop();
+        $layout = new Layout();
+        $layout->renderTop($title, $description, $cssFilePath, $jsFilePath);
         $view->showView();
         $layout->renderBottom();
     }

@@ -26,21 +26,20 @@ class Account {
             exit();
         }
 
-        $id_tenrac = $_SESSION['id_tenrac'];
-        $db = new Database();
+        $db = Database::getInstance();
         $accountModel = new \Blog\Models\Account($db);
 
-        $accountInfo = $accountModel->returnAll($id_tenrac);
+        $accountInfo = $accountModel->returnAll($_SESSION['id_tenrac']);
 
         $title = "Mon Compte";
         $description = "Page permettant de voir les informations du compte";
         $cssFilePath = '_assets/styles/account.css';
         $jsFilePath = '';
 
-        $view = new \Blog\Views\Account($accountInfo['Nom'], $accountInfo['courriel'], $accountInfo['adresse_postale'], $accountInfo['num_tel'], $accountInfo['grade'], $accountInfo['rang'], $accountInfo['titre'], $accountInfo["dignite"]);
+        $view = new \Blog\Views\Account($accountInfo['nom_'], $accountInfo['courriel'], $accountInfo['adresse_postale'], $accountInfo['num_tel'], $accountInfo['grade'], $accountInfo['rang'], $accountInfo['titre'], $accountInfo["dignite"]);
 
-        $layout = new Layout($title, $description, $cssFilePath, $jsFilePath);
-        $layout->renderTop();
+        $layout = new Layout();
+        $layout->renderTop($title, $description, $cssFilePath, $jsFilePath);
         $view->showView();
         $layout->renderBottom();
     }

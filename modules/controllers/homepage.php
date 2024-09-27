@@ -13,6 +13,13 @@ class Homepage {
      * Pas de liaison avec un contrôleur, la page étant statique
      */
     public function show(): void {
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['logout'])) {
+            $_SESSION['id_tenrac'] = '';
+            header('Location: /homepage');
+            exit();
+        }
+
         $title = "Accueil";
         $description = "Site officiel des Tenrac";
         $cssFilePath = '_assets/styles/homepage.css';
@@ -20,8 +27,8 @@ class Homepage {
 
         $view = new \Blog\Views\Homepage();
 
-        $layout = new Layout($title, $description, $cssFilePath, $jsFilePath);
-        $layout->renderTop();
+        $layout = new Layout();
+        $layout->renderTop($title, $description, $cssFilePath, $jsFilePath);
         $view->showView();
         $layout->renderBottom();
     }

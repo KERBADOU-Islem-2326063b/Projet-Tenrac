@@ -59,9 +59,9 @@ main {
 /** Footer **/
 footer {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
     border-top: 3px solid black;
     background-color: #FFC067;
     font-size: var(--font-small);
@@ -70,13 +70,29 @@ footer {
 footer p {
     margin: var(--small-spacing);
     padding: 0;
-    max-width: 85%;
 }
 
-.social-icons {
+.footer-text {
+    display: flex;
+}
+
+.W3C-logo {
     display: flex;
     flex-direction: row;
 }
+
+#html5Validator {
+    border:0;
+    width:33px;
+    height:31px
+}
+
+#css3Validator {
+    border:0;
+    width:88px;
+    height:31px
+}
+
 
 /** Images **/
 img {
@@ -177,5 +193,9 @@ button {
         height: 5px;
         background-color: var(--main-color);
         margin: var(--small-spacing) 0;
+    }
+
+    .footer-text {
+        display: none;
     }
 }

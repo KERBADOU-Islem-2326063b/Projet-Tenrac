@@ -14,13 +14,19 @@ class Login {
         $this->db = $db;
     }
 
+    /**
+     * On vérifie si l'utilisateur existe dans le BS, si oui return vrai(true) sinon faux(false)
+     * @param string $id_tenrac
+     * @param string $passwordLogs
+     * @return bool
+     */
     public function doLogsExist(string $id_tenrac, string $passwordLogs): bool {
         if (empty($id_tenrac) || empty($passwordLogs)) {
             return false;
         }
 
         $db = $this->db;
-        $query = 'SELECT mdp_tenrac FROM users WHERE id_tenrac = :id_tenrac';
+        $query = 'SELECT mdp_tenrac FROM membre WHERE id_tenrac = :id_tenrac';
         $stmt = $db->getConn()->prepare($query);
         $stmt->bindParam(':id_tenrac', $id_tenrac);
         $stmt->execute();
@@ -33,24 +39,7 @@ class Login {
                 return true;
             };
         }
-
         return false;
-    }
-
-    public function returnAll(string $id_tenrac) {
-        $db = $this->db;
-        $query = 'SELECT * FROM users WHERE id_tenrac = :id_tenrac';
-        $stmt = $db->getConn()->prepare($query);
-        $stmt->bindParam(':$id_tenrac', $id_tenrac, $db->getConn()::PARAM_INT);
-        $stmt->execute();
-
-        $result = $stmt->fetch($db->getConn()::FETCH_ASSOC);
-
-        if ($result) {
-            return $result;
-        }
-
-        return null;
     }
 }
 ?>
