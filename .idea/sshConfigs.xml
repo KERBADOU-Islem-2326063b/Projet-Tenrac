@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="SshConfigs">
-    <configs>
-      <sshConfig authType="PASSWORD" host="ssh-tenrac2.alwaysdata.net" id="0bbfa1c5-4d80-4608-a8f5-56443c4e2db6" port="22" nameFormat="DESCRIPTIVE" username="tenrac2" useOpenSSHConfig="true" />
-    </configs>
-  </component>
-</project>
