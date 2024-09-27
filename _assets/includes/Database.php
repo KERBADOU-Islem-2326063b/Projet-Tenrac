@@ -3,10 +3,10 @@
  * Classe s'occupant de la connexion à la base de données
  */
 class Database {
-    private string $host = "mysql-tenrac.alwaysdata.net";
-    private string $user = "tenrac_db";
-    private string $pass = "JdozlVeieo628hK";
-    private string $dbname = "tenrac_db";
+    private string $host = "mysql-daphne.alwaysdata.net";
+    private string $user = "daphne";
+    private string $pass = "bonjour154!";
+    private string $dbname = "daphne_db";
     private PDO $conn;
     /**
      * Constructeur de la classe Database
