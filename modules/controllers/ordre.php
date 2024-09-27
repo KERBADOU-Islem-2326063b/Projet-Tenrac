@@ -17,11 +17,12 @@ class Ordre {
         $title = "Clubs";
         $description = "Ordre des clubs des tenrac";
         $cssFilePath = '_assets/styles/ordre.css';
-        $jsFilePath = '';
+        $jsFilePath = '_assets/javascript/ordre.js';
+
 
 
         $db = new Database();
-        $ordreModel = new \Blog\Models\Ordre($db);
+        $ordreModel = new \Blog\Models\OrdreModel($db);
         $result = $ordreModel->returnAll();
 
 

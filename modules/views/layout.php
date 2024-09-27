@@ -29,7 +29,7 @@ class Layout {
         <?php
         echo '<script src="_assets/javascript/layout.js"></script>';
         if ($this->jsFilePath) {
-            echo '<script src="' . $this->cssFilePath . '"></script>';
+            echo '<script src="' . $this->jsFilePath . '"></script>';
         }?>
         <meta name="description" content="<?php echo $this->description; ?>">
         <meta name="keywords" content="Tenrac, tenders, poulet, raclette, secte">

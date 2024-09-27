@@ -16,7 +16,7 @@ class Account {
 
     public function returnAll(string $id_tenrac) {
         $db = $this->db;
-        $query = 'SELECT * FROM users WHERE id_tenrac = :id_tenrac';
+        $query = 'SELECT * FROM membre WHERE id_tenrac = :id_tenrac';
         $stmt = $db->getConn()->prepare($query);
         $stmt->bindParam(':id_tenrac', $id_tenrac);
         $stmt->execute();

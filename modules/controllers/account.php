@@ -37,7 +37,7 @@ class Account {
         $cssFilePath = '_assets/styles/account.css';
         $jsFilePath = '';
 
-        $view = new \Blog\Views\Account($accountInfo['Nom'], $accountInfo['courriel'], $accountInfo['adresse_postale'], $accountInfo['num_tel'], $accountInfo['grade'], $accountInfo['rang'], $accountInfo['titre'], $accountInfo["dignite"]);
+        $view = new \Blog\Views\Account($accountInfo['Nom_'], $accountInfo['courriel'], $accountInfo['adresse_postale'], $accountInfo['num_tel'], $accountInfo['grade'], $accountInfo['rang'], $accountInfo['titre'], $accountInfo["dignite"]);
 
         $layout = new Layout($title, $description, $cssFilePath, $jsFilePath);
         $layout->renderTop();

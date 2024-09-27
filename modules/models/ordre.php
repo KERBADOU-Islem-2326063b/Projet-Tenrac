@@ -25,4 +25,20 @@ class Ordre
 
         return null;
     }
+
+    public function addOrdre($nom, $adresse) {
+        $db = $this->db;
+        $query = 'INSERT INTO club (nom, adresse)';
+        $stmt = $db->getConn()->prepare($query);
+        $stmt->execute();
+    }
+
+    public function deleteOrdre($nom) {
+        $db = $this->db;
+        $query = 'DELETE FROM club WHERE nom = :nom_';
+        $stmt = $db->getConn()->prepare($query);
+        $stmt->bindParam(':nom', $nom);
+        $stmt->execute();
+    }
+
 }
