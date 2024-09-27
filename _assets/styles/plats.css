@@ -1,0 +1,52 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    max-width: 100%;
+}
+
+#titre {
+    font-family: "Noto Sans Devanagari Condensed SemiBold", system-ui;
+    font-size: 240%;
+    color: #d18717;
+    padding: 35px 35px 35px 50px;
+}
+
+.plats-container {
+    border: 5px solid black;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.rangee{
+    border: 5px solid pink;
+    margin: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.plats{
+    border: 2px solid yellow;
+    size: 100px;
+    margin : 15px;
+
+
+}
+
+.imgplat{
+    border: 1px solid #d18717;
+    width: 300px;
+    justify-items: center;
+}
+
+.ingredient{
+    border: 2px solid blue;
+    width: 300px;
+}
