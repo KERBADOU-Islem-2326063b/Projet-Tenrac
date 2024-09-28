@@ -7,12 +7,54 @@ main {
     background-color: #f9f9f9;
 }
 
+/* Textes d'information */
 p.error {
     color: red;
 }
 
 p.ok {
     color: green;
+}
+
+/* Formulaire d'ajout de Tenrac */
+form {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    background-color: #f9f9f9;
+    border: 2px solid var(--main-color);
+    border-radius: 10px;
+    padding: 20px;
+    width: 90%;
+    max-width: 600px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form h2 {
+    font-family: var(--main-family), sans-serif;
+    font-size: 1.8em;
+    color: var(--main-color);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+form label {
+    font-family: var(--main-family), sans-serif;
+    font-size: 1.1em;
+    color: var(--main-color);
+    display: block;
+    margin-bottom: 8px;
+}
+
+.formInputs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
 /* Titre */
@@ -42,7 +84,6 @@ p.ok {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Hover effect for membre */
 .membre:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
@@ -92,6 +133,10 @@ button {
     color: #fff;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.deleteButtonForm {
+    all: revert;
 }
 
 .membre button {

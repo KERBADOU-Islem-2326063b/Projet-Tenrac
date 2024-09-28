@@ -15,6 +15,84 @@ class Members {
     {
 ?>
 <main>
+        <?php if ($_SESSION['id_tenrac']) { ?>
+    <p id="titre"><i>Formulaire divin d'ajout de Tenrac</i></p>
+
+    <form method="post">
+        <h2>Merci de remplir soigneusement les champs suivants</h2>
+        <div class="formInputs">
+            <div class="basicInfo">
+                <label for="nom">Nom :</label>
+                <input type="text" id="nom" name="nom" required>
+
+                <label for="id">Identifiant Tenrac :</label>
+                <input type="text" id="id" name="id" required>
+
+                <label for="password">Mot de passe :</label>
+                <input type="password" id="password" name="password" required>
+
+                <label for="courriel">Courriel :</label>
+                <input type="email" id="courriel" name="courriel" required>
+            </div>
+            <div>
+                <label for="adresse_postale">Adresse postale :</label>
+                <input type="text" id="adresse_postale" name="adresse_postale" required>
+
+                <label for="num_tel">Téléphone :</label>
+                <input type="tel" id="num_tel" name="num_tel" required>
+            </div>
+            <div>
+                <label for="titreTenrac">Titre :</label>
+                <select name="titreTenrac" id="titreTenrac" required>
+                    <option value="PHILANTHROPE">Philanthrope</option>
+                    <option value="PROTECTEUR">Protecteur</option>
+                    <option value="HONORABLE">Honorable</option>
+                </select>
+
+                <label for="rang">Rang :</label>
+                <select name="rang" id="rang" required>
+                    <option value="NOVICE">Novice</option>
+                    <option value="COMPAGNON">Compagnon</option>
+                </select>
+
+                <label for="grade">Grade :</label>
+                <select name="grade" id="grade" required>
+                    <option value="AFFILIE">Affilié</option>
+                    <option value="SYMPATHISANT">Sympathisant</option>
+                    <option value="ADHERENT">Adhérent</option>
+                    <option value="CHEVALIER">Chevalier</option>
+                    <option value="DAME">Dame</option>
+                    <option value="GRAND CHEVALIER">Grand Chevalier</option>
+                    <option value="HAUTE DAME">Haute Dame</option>
+                    <option value="COMMANDEUR">Commandeur</option>
+                    <option value="GRAND CROIX">Grand’Croix</option>
+                </select>
+
+                <label for="dignite">Dignité :</label>
+                <select name="dignite" id="dignite" required>
+                    <option value="MAITRE">Maître</option>
+                    <option value="GRAND CHANCELIER">Grand Chancelier</option>
+                    <option value="GRAND MAITRE">Grand Maître</option>
+                </select>
+            </div>
+            <button type="submit" name="addMember">Ajouter le membre</button>
+        </div>
+
+        <?php
+        }
+        if(isset($_POST['addMember'])) {
+            $error = $this->model->addNewMemberFromPost();
+
+            if ($error !== true) { ?>
+                <p class="error">Échec de la création du Tenrac <?=$_POST['id']?>
+                    <br> <?=$error?></p>
+            <?php } else { ?>
+                <p class="ok">Tenrac créé! Que le gras apporte joie et abondance à ce jeune poussin.</p>
+            <?php }
+        }
+        ?>
+
+    </form>
     <p id="titre"><i>Membres</i></p>
     <?php
     if (isset($_POST['toDeleteId'])) {
@@ -43,11 +121,12 @@ class Members {
                 <div class="membre">
                     <div class="colonneL">
                         <?php if ($_SESSION['id_tenrac']) { ?>
-                                <form method="post">
+                                <form method="post" class="deleteButtonForm">
                                     <input type="hidden" name="toDeleteId" value="<?=$member["id_tenrac"]?>">
                                     <button aria-label='supprimer membre' type='submit'>X</button>
                                 </form>
                         <?php } ?>
+                        <div><strong><?=$member["titre"]?></strong></div>
                         <div><strong><?=$member["nom_"]?></strong></div>
                     </div>
                     <div class="colonneML">
