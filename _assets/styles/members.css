@@ -7,6 +7,14 @@ main {
     background-color: #f9f9f9;
 }
 
+p.error {
+    color: red;
+}
+
+p.ok {
+    color: green;
+}
+
 /* Titre */
 #titre {
     font-family: var(--main-family), system-ui;

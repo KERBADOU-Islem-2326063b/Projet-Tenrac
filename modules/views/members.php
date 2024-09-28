@@ -1,8 +1,6 @@
 <?php
 namespace Blog\Views;
 
-use PDOException;
-
 /**
  * Vue de la page des members
  */
@@ -19,18 +17,24 @@ class Members {
 <main>
     <p id="titre"><i>Membres</i></p>
     <?php
-    if (isset($_POST['toDeleteId'])):
-        try { // on essaie de supprimer le membre et afficher le message de confirmation
-            $this->model->deleteMember($_POST['toDeleteId']) ?>
-            <p style="color: darkgreen"> <?=$_POST['toDeleteId']?> a été supprimé </p>
-
-            <?php } catch(PDOException $e) { // si kapout alors on récupère l'erreur et on l'affiche
+    if (isset($_POST['toDeleteId'])) {
+        if($_POST['toDeleteId'] == $_SESSION['id_tenrac']) { // si on supprime le membre qui est connecté dans la session
             ?>
+            <p class="error">Tu ne peux pas supprimer ton propre compte, bête tenrac.</p>
+        <?php } else {
+         // on essaie de supprimer le membre et afficher le message de confirmation
+            $error = $this->model->deleteMember($_POST['toDeleteId']);
+            if ($error !== true) {
+                // si kapout alors on récupère l'erreur et on l'affiche?>
+                <p class="error"> Échec de la suppression de <?=$_POST['toDeleteId']?>, merci de contacter un administrateur (oops ^^)
+                    <br> <?=$error?></p>
+            <?php } else {
+            // sinon on affiche simplement le message de confirmation ?>
+                <p class="ok""> <?=$_POST['toDeleteId']?> a été supprimé </p>
 
-            <p style="color: red"> Échec de la suppression de <?=$_POST['toDeleteId']?>, merci de contacter un administrateur (oops ^^)
-            <br> <?=$e?></p>
-
-    <?php } endif;
+    <?php }
+        }
+    }
     $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
     $totalPages = $this->model->getMaxPages();
     foreach ($this->model->getMembers($page) as $member):

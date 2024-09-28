@@ -32,6 +32,7 @@ class Members {
         $query = "DELETE FROM membre WHERE id_tenrac = :id";
         $stmt = $db->prepare($query);
         $stmt->bindParam(':id', $id);
+
         try {
             $stmt->execute();
             return true;
