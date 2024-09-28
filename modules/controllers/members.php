@@ -16,7 +16,9 @@ class Members {
         $cssFilePath = '_assets/styles/members.css';
         $jsFilePath = '';
 
-        $view = new \Blog\Views\Members();
+        $model = new \Blog\Models\Members(\Database::getInstance());
+
+        $view = new \Blog\Views\Members($model);
 
         $layout = new Layout();
         $layout->renderTop($title, $description, $cssFilePath, $jsFilePath);
