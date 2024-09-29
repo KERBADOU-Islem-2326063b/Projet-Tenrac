@@ -1,50 +1,76 @@
 @import "layout.css";
 
-#archs {
+main {
+    flex-direction: column;
+}
+
+main p {
+    text-align: center;
+}
+
+/* Carousel */
+.carousel {
+    max-width: 60%;
+    overflow: hidden;
+    border: 4px solid var(--main-color);
+    border-radius: 10px;
+}
+
+.carousel-container {
     display: flex;
-    justify-content: space-between;
+    transition: transform 0.5s ease-in-out;
+    width: 50%;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 10px;
+}
+
+.carousel-slide img {
     width: 100%;
+    height: auto;
+    border-radius: 10px;
 }
 
-#arch-down-left{
-    width: 80%;
-    height: 340px;
-    background: var(--main-color);
-    border-radius: 0px 120px 120px 0px;
-    margin: 40px 0;
+.carousel-slide p {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    color: #333;
 }
 
-#arch-down-right{
-    width: 80%;
-    height: 340px;
-    background: #ffc84d;
-    border-radius: 120px 0 0 120px;
-    margin: 40px 0;
-    align-self: flex-start;
+.carousel-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
 }
-#plefttop {
-    font-family: var(--main-family), system-ui;
-    font-size: 240% ;
-    color: white;
-    padding: 35px 30px 0px 25px;
+
+.prev {
+    left: 10px;
+    margin-right: 20px;
 }
-#prightbottom {
-    font-family: var(--main-family), system-ui;
-    font-size: 250%;
-    text-align: right;
-    color: #ffc84d;
-    padding: 35px 40px 25px 25px;
+
+.next {
+    right: 10px;
+    margin-left: 20px;
+
 }
-#prighttop {
-    font-family: "Noto Serif Georgian Md", system-ui;
-    font-size: 240%;
-    text-align: right;
-    color: white;
-    padding: 0px 25px 0px 25px;
-}
-#pleftbottom {
-    font-family: var(--main-family), system-ui;
-    font-size: 240%;
-    color: #d18717;
-    padding: 35px 35px 35px 40px ;
+
+/* Carousel Responsive sur téléphone*/
+@media (max-width: 768px) {
+    .carousel-slide p {
+        font-size: 1rem;
+    }
+
+    .carousel {
+        max-width: 180%;
+    }
+
+    .carousel-controls {
+        width: 100px;
+        padding: 8px;
+        margin-top: 0;
+    }
 }

@@ -16,7 +16,7 @@ class Homepage {
         $title = "Accueil";
         $description = "Site officiel des Tenrac";
         $cssFilePath = '_assets/styles/homepage.css';
-        $jsFilePath = '';
+        $jsFilePath = '_assets/javascript/homepage.js';
 
         $view = new \Blog\Views\Homepage();
 
