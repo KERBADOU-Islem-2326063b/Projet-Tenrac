@@ -17,9 +17,9 @@ class Layout {
             <meta charset="UTF-8">
             <?php echo '<link rel="stylesheet" href="' . $cssFilePath . '">';?>
             <?php
-            echo '<script type="text/javascript" src="_assets/javascript/layout.js"></script>';
+            echo '<script src="_assets/javascript/layout.js"></script>';
             if ($jsFilePath) {
-                echo '<script type="text/javascript" src="' . $jsFilePath . '"></script>';
+                echo '<script src="' . $jsFilePath . '"></script>';
             }?>
             <meta name="description" content="<?php echo $description; ?>">
             <meta name="keywords" content="Tenrac, tenders, poulet, raclette, secte">
