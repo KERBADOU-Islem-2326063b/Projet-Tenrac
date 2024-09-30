@@ -22,7 +22,7 @@ class Ordre {
 
 
         $db = new Database();
-        $ordreModel = new \Blog\Models\OrdreModel($db);
+        $ordreModel = new \Blog\Models\Ordre($db);
         $result = $ordreModel->returnAll();
 
 
