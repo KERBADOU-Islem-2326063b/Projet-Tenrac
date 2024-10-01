@@ -11,14 +11,12 @@ img {
 }
 
 .plats-container {
-    border: 5px solid black;
     display: flex;
     flex-direction: column;
 
 }
 
 .rangee{
-    border: 5px solid pink;
     margin: 15px;
     display: flex;
     flex-direction: row;
@@ -27,7 +25,6 @@ img {
 }
 
 .plats{
-    border: 2px solid yellow;
     size: 100px;
     margin : 15px;
 
@@ -41,6 +38,37 @@ img {
 }
 
 .ingredient{
-    border: 2px solid blue;
     width: 300px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.pagination a {
+    padding: 10px 15px;
+    margin: 0 5px;
+    text-decoration: none;
+    color: #f9f9f9;
+    border: 1px solid #f9f9f9;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.pagination a.active {
+    background-color: #f9f9f9;
+    color: white;
+}
+
+.pagination a:hover {
+    background-color: rgba(255, 99, 71, 0.7);
+    color: white;
+}
+
+.pagination a.prev,
+.pagination a.next {
+    font-weight: bold;
 }

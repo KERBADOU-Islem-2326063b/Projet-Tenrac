@@ -59,6 +59,7 @@ $router->get('/', function(){ (new \Blog\Controllers\Homepage())->show(); });
 $router->get('/homepage', function(){ (new \Blog\Controllers\Homepage())->show();  });
 $router->get('/hello', function(){ echo 'Bonjour'; });
 $router->get('/plats', function(){ ( new \Blog\Controllers\Plats())->show(); });
+$router->post('/plats', function(){ (new \Blog\Controllers\Plats())->show();});
 
 $router->get('/login', function() {
     (new \Blog\Controllers\Login())->show();
