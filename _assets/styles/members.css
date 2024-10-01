@@ -1,0 +1,213 @@
+@import "layout.css";
+
+main {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+/* Textes d'information */
+p.error {
+    color: red;
+}
+
+p.ok {
+    color: green;
+}
+
+/* Formulaire d'ajout de Tenrac */
+form {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    background-color: #f9f9f9;
+    border: 2px solid var(--main-color);
+    border-radius: 10px;
+    padding: 20px;
+    width: 90%;
+    max-width: 600px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form h2 {
+    font-family: var(--main-family), sans-serif;
+    font-size: 1.8em;
+    color: var(--main-color);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+form label {
+    font-family: var(--main-family), sans-serif;
+    font-size: 1.1em;
+    color: var(--main-color);
+    display: block;
+    margin-bottom: 8px;
+}
+
+.formInputs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+/* Titre */
+#titre {
+    font-family: var(--main-family), system-ui;
+    font-size: 240%;
+    color: var(--main-color);
+    text-align: center;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+/* Membre */
+.membre {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    padding: 22px;
+    margin: 20px 0;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: var(--main-color);
+    width: 90%;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.membre:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Colonne gauche */
+.colonneL {
+    display: flex;
+    flex-basis: 20%;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: start;
+    margin: 0 10px;
+    padding-right: 10px;
+    border-right: orange 1px solid;
+    font-size: 0.9rem;
+}
+
+/* Colonne milieu gauche */
+.colonneML {
+    display: flex;
+    flex-basis: 45%;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-right: orange 1px solid;
+    margin: 0 10px;
+    padding-right: 10px;
+}
+
+/* Colonne droite */
+.colonneR {
+    display: flex;
+    flex-basis: 35%;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 10px;
+}
+
+/* Bouton */
+button {
+    padding: 8px 16px;
+    background-color: var(--main-color);
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.deleteButtonForm {
+    all: revert;
+}
+
+.membre button {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    height: 30px;
+    width: 30px;
+    background-color: var(--main-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+    color: #fff;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Effet du bouton */
+.membre button:hover {
+    background-color: #ff6347;
+    transform: scale(1.1);
+}
+
+/* Nom en grand */
+.bigName {
+    color: var(--main-color);
+    font-size: 1.4rem;
+    font-weight: 600;
+    padding-top: 5px;
+    text-align: left;
+}
+
+.membre, .colonneL, .colonneML, .colonneR {
+    transition: all 0.3s ease;
+}
+
+.membre:hover .colonneL,
+.membre:hover .colonneML,
+.membre:hover .colonneR {
+    transform: translateX(3px);
+}
+
+/* Style pour la pagination */
+.pagination {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.pagination a {
+    padding: 10px 15px;
+    margin: 0 5px;
+    text-decoration: none;
+    color: var(--main-color);
+    border: 1px solid var(--main-color);
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.pagination a.active {
+    background-color: var(--main-color);
+    color: white;
+}
+
+.pagination a:hover {
+    background-color: rgba(255, 99, 71, 0.7);
+    color: white;
+}
+
+.pagination a.prev,
+.pagination a.next {
+    font-weight: bold;
+}
