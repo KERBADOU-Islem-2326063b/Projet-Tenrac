@@ -15,6 +15,7 @@ class Plats {
         $description = "Page d'affichage des plats";
         $cssFilePath = '_assets/styles/plats.css';
         $jsFilePath = '';
+
         $db = new Database();
         $model = new \Blog\Models\Plats($db);
 

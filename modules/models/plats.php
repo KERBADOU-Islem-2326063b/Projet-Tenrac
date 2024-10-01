@@ -22,12 +22,13 @@ class Plats {
      * @return bool|array l'array de tous les plats, false si erreur ou aucune donnée
      */
     public function getPlats(int $page): bool|array{
-        $nbTotPlats = $this->getPlatsCount();
+        //$nbTotPlats = $this->getPlatsCount();
         $parPage = 4;
-        $nbPages = ceil($nbTotPlats / $parPage);
-
+        //$nbPages = ceil($nbTotPlats / $parPage);
+        $offset = ($page-1)*$parPage;
         $db = $this->db->getConn();
-        $stmt = 'SELECT * FROM plat LIMIT'. $parPage * ($page - 1) . ',' . $parPage * $page;
+        $stmt = "SELECT * FROM plat LIMIT $offset, $parPage";
+
 
         return $db->query($stmt)->fetchAll();
     }
@@ -39,14 +40,14 @@ class Plats {
      */
     public function getIngredients(string $nom_plat): ?array{
         $db = $this->db;
-        $query = 'SELECT * FROM compose_plats WHERE nom_plat = :nom_plat';
+        $query = 'SELECT * FROM compose_plat WHERE nom_plat = :nom_plat';
         $stmt = $db->getConn()->prepare($query);
         $stmt->bindParam(':nom_plat', $nom_plat);
         $stmt->execute();
 
-        $result = $stmt->fetch($db->getConn()::FETCH_ASSOC);
+        $result = $stmt->fetchAll($db->getConn()::FETCH_ASSOC);
 
-        return $result;
+        return $result ?:null;
     }
 
     /**

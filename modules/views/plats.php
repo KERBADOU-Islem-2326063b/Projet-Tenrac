@@ -5,10 +5,10 @@ namespace Blog\Views;
  * Vue de la page des plats
  */
 class Plats {
-    private \Blog\Models\Plats $plat;
+    private \Blog\Models\Plats $model;
 
-    public function __construct(\Blog\Models\Plats $plat) {
-        $this->plat = $plat;
+    public function __construct(\Blog\Models\Plats $model) {
+        $this->model = $model;
     }
 
 
@@ -17,54 +17,36 @@ class Plats {
      * @return void
      */
     public function showView(): void {
+
+        $page = isset($_GET['page'])? (int)$_GET['page'] : 1;
+        $plats = $this->model->getPlats($page);
+
         ?>
+
         <body>
         <p id="titre"> Plats <br> </p>
 
         <div class="plats-container">
             <div class="rangee">
+
+                <?php
+                //$totalPages = $this->model->getMaxPages();
+                foreach ($plats as $plat):
+                    $ingredients = $this->model->getIngredients($plat['nom_plat']);
+                    ?>
                 <div class="plats">
                     <img class="imgplat"
-                         src="C:\Users\Daphné\OneDrive\Images\image.png"
-                         alt="image du plat n°1">
+                         src="https://imgur.com/chqWu1N.png"
+                         alt="image du plat n° <?=htmlspecialchars($plat['nom_plat']); ?> ">
 
-                    <p><b> <?php $this->plat->getPlats() ?> </b></p>
+                    <p><b> <?= htmlspecialchars($plat['nom_plat']); ?> </b></p>
 
-                    <p class="ingredient"> Ingrédients ingrédients ingrédient ingrédient ingrédient </p>
-
+                    <?php foreach ($ingredients as $ingredient):
+                    ?>
+                    <p class="ingredient"> <?= htmlspecialchars($ingredient['nom_aliment']);?> </p>
+                    <?php endforeach;?>
                 </div>
-
-                <div class="plats">
-                    <img class="imgplat"
-                         src="C:\Users\Daphné\OneDrive\Images\image.png"
-                         alt="image du plat n°2">
-
-                    <p><b> Plat 2 </b></p>
-
-                    <p class="ingredient">Ingrédients ingrédients ingrédient ingrédient ingrédient ingrédient ingrédient ingrédient ingrédient ingrédient ingrédient ingrédient</p>
-
-                </div>
-
-                <div class="plats">
-                    <img class="imgplat"
-                         src="C:\Users\Daphné\OneDrive\Images\image.png"
-                         alt="image du plat n°3">
-
-                    <p><b> Plat 3 </b></p>
-
-                    <p class="ingredient">Ingrédients ingrédients ingrédient ingrédient ingrédient ingrédient ingrédient ingrédient ingrédient ingrédient ingrédient ingrédient</p>
-
-                </div>
-
-                <div class="plats">
-                    <img class="imgplat"
-                         src="C:\Users\Daphné\OneDrive\Images\image.png"
-                         alt="image du plat n°4">
-
-                    <p><b> Plat 4 </b></p>
-
-                    <p class="ingredient">Ingrédients ingrédients ingrédient ingrédient ingrédient ingrédient ingrédient ingrédient ingrédient ingrédient ingrédient ingrédient</p>
-                </div>
+                <?php endforeach;?>
             </div>
 
 
@@ -113,8 +95,8 @@ class Plats {
             </div>
 
         </div>
+
         </body>
-        <?php
+<?php
     }
-}
-?>
+}?>
