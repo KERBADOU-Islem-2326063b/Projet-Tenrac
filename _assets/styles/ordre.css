@@ -46,3 +46,8 @@ tbody tr:nth-child(even) {
     background-color: #cf7327;
 }
 
+.modif{
+    display: flex;
+    flex-direction: column;
+}
+

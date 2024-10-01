@@ -76,6 +76,10 @@ $router->get('/ordre', function() {
     (new \Blog\Controllers\Ordre())->show();
 });
 
+$router->post('/ordre', function() {
+    (new \Blog\Controllers\Ordre())->show();
+});
+
 try {
     $router->run();
 } catch (RouterException $e) {
