@@ -108,7 +108,7 @@ class Members {
                     <br> <?=$error?></p>
             <?php } else {
             // sinon on affiche simplement le message de confirmation ?>
-                <p class="ok""> <?=$_POST['toDeleteId']?> a été supprimé </p>
+                <p class="ok"> <?=$_POST['toDeleteId']?> a été supprimé </p>
 
     <?php }
         }
@@ -139,6 +139,16 @@ class Members {
                         <div><strong><?=$member["grade"]?></strong></div>
                         <div><strong><?=$member["dignite"]?></strong></div>
                     </div>
+                        <?php if ($_SESSION['id_tenrac']) { ?>
+                                <button class="toggleModif" onclick="toggleMenu(this.parentNode)">menu de modif</button>
+                        <div class="modifMenu" style="display: none;">
+                            <ul>
+                                <li>Option 1</li>
+                                <li>Option 2</li>
+                                <li>Option 3</li>
+                            </ul>
+                        </div>
+                <?php } ?>
                 </div>
         <?php endforeach; ?>
 
