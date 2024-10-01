@@ -30,7 +30,7 @@ class Plats {
             <div class="rangee">
 
                 <?php
-                //$totalPages = $this->model->getMaxPages();
+                $totalPages = $this->model->getMaxPages();
                 foreach ($plats as $plat):
                     $ingredients = $this->model->getIngredients($plat['nom_plat']);
                     ?>
@@ -49,49 +49,18 @@ class Plats {
                 <?php endforeach;?>
             </div>
 
+            <div class="pagination">
+                <?php if ($page>1): ?>
+                    <a href="?page=<?= $page-1 ?>" class="prev"> Précédent</a>
+                <?php endif; ?>
 
-            <div class="rangee">
-                <div class="plats">
-                    <img class="imgplat"
-                         src="C:\Users\Daphné\OneDrive\Images\image.png"
-                         alt="image du plat n°5">
+                <?php for ($i=1; $i<=$totalPages; $i++): ?>
+                    <a href="?page=<?= $i ?>" class="<? $i == $page ? 'active': '' ?>"><?= $i ?></a>
+                <?php endfor; ?>
 
-                    <p><b> Plat 5 </b></p>
-
-                    <p class="ingredient">Ingrédients ingrédients ingrédient ingrédient ingrédient ingrédient ingrédient ingrédient ingrédient ingrédient ingrédient ingrédient</p>
-                </div>
-
-                <div class="plats">
-                    <img class="imgplat"
-                         src="C:\Users\Daphné\OneDrive\Images\image.png"
-                         alt="image du plat n°6">
-
-                    <p><b> Plat 6 </b></p>
-
-                    <p class="ingredient">Ingrédients ingrédients ingrédient ingrédient ingrédient ingrédient ingrédient ingrédient ingrédient ingrédient ingrédient ingrédient</p>
-                </div>
-
-                <div class="plats">
-                    <img class="imgplat"
-                         src="C:\Users\Daphné\OneDrive\Images\image.png"
-                         alt="image du plat n°7">
-
-                    <p><b> Plat 7</b></p>
-
-                    <p class="ingredient">Ingrédients ingrédients ingrédient ingrédient ingrédient ingrédient ingrédient ingrédient ingrédient ingrédient ingrédient ingrédient</p>
-                </div>
-
-                <div class="plats">
-                    <img class="imgplat"
-                         src="C:\Users\Daphné\OneDrive\Images\image.png"
-                         alt="image du plat n°8">
-
-                    <p><b> Plat 8 </b></p>
-
-                    <p class="ingredient">Ingrédients ingrédients ingrédient ingrédient ingrédient ingrédient ingrédient ingrédient ingrédient ingrédient ingrédient ingrédient</p>
-                </div>
-
-
+                <?php if ($page < $totalPages): ?>
+                    <a href="?page=<?= $page+1?>" class="next">Suivant</a>
+                <?php endif; ?>
             </div>
 
         </div>
