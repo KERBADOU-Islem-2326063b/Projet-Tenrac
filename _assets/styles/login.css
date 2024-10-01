@@ -11,9 +11,7 @@
     text-align: center;
 }
 
-label,
-.loginForm p,
-.accountInfo p {
+label, .loginForm p, .accountInfo p {
     display: block;
     width: 100%;
     margin-top: var(--small-spacing);

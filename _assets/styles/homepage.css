@@ -1,5 +1,84 @@
 @import "layout.css";
 
-h1 {
-    color: red;
+main {
+    flex-direction: column;
+}
+
+main p {
+    text-align: center;
+    margin: var(--small-spacing);
+}
+
+main h1 {
+    color: var(--main-color);
+    text-align: center;
+    margin: var(--small-spacing);
+}
+
+/* Carousel */
+.carousel {
+    margin-top: 50px;
+    max-width: 50%;
+    overflow: hidden;
+    border: 4px solid var(--main-color);
+    border-radius: 10px;
+}
+
+.carousel-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 50%;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 10px;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.carousel-slide p {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.carousel-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.prev {
+    left: 10px;
+    margin-right: 20px;
+}
+
+.next {
+    right: 10px;
+    margin-left: 20px;
+
+}
+
+/* Carousel Responsive sur téléphone*/
+@media (max-width: 768px) {
+    .carousel-slide p {
+        font-size: 1rem;
+    }
+
+    .carousel {
+        max-width: 100%;
+    }
+
+    .carousel-controls {
+        width: 250px;
+        padding: 8px;
+        margin-top: 0;
+    }
 }
