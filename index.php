@@ -54,31 +54,26 @@ if (!isset($_SESSION['id_tenrac'])) {
 /**
  * Initialisation du routage des URI
  */
-$router = new Router(strtok($_SERVER["REQUEST_URI"], '?'));
+$router = new Router(strtok($_SERVER['REQUEST_URI'],'?'));
 $router->get('/', function(){ (new \Blog\Controllers\Homepage())->show(); });
 $router->get('/homepage', function(){ (new \Blog\Controllers\Homepage())->show();  });
-$router->get('/account', function(){ (new \Blog\Controllers\Account())->show();  });
+$router->get('/hello', function(){ echo 'Bonjour'; });
 $router->get('/plats', function(){ ( new \Blog\Controllers\Plats())->show(); });
 $router->post('/plats', function(){ (new \Blog\Controllers\Plats())->show();});
 
 $router->get('/login', function() {
     (new \Blog\Controllers\Login())->show();
 });
-$router->get('/members', function(){ (new \Blog\Controllers\Members())->show();  });
-
-$router->post('/homepage', function() {
-    (new \Blog\Controllers\Homepage())->show();
-});
 
 $router->post('/login', function() {
     (new \Blog\Controllers\Login())->show();
 });
 
+$router->get('/account', function(){ (new \Blog\Controllers\Account())->show();  });
+
 $router->post('/account', function() {
     (new \Blog\Controllers\Account())->show();
 });
-
-$router->post('/members', function(){ (new \Blog\Controllers\Members())->show();  });
 
 try {
     $router->run();
