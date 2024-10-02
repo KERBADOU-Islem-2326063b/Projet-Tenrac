@@ -37,7 +37,7 @@ class Login {
             echo $result['mdp_tenrac'];
             if (password_verify($passwordLogs, $result['mdp_tenrac'])) {
                 return true;
-            };
+            }
         }
         return false;
     }
