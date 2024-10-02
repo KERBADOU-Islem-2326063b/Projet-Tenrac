@@ -6,8 +6,14 @@ namespace Blog\Views;
  */
 class Ordre {
     private $ordre;
-    public function __construct($ordre) {
+    private $currentPage;
+    private $totalPages;
+
+
+    public function __construct($ordre, $currentPage, $totalPages) {
         $this->ordre = $ordre;
+        $this->currentPage = $currentPage;
+        $this->totalPages = $totalPages;
     }
 
     /**
@@ -23,7 +29,9 @@ class Ordre {
                 <tr>
                     <td>Club</td>
                     <td>Adresse</td>
+                <?php if ($_SESSION['id_tenrac']) { ?>
                     <td>Actions</td>
+                <?php } ?>
                 </tr>
                 </thead>
                 <tbody>
@@ -35,6 +43,7 @@ class Ordre {
                     <tr>
                         <td> <?php echo htmlspecialchars($ordre1['Nom_club']); ?></td>
                         <td> <?php echo htmlspecialchars($ordre1['adresse_postale']); ?></td>
+                    <?php if ($_SESSION['id_tenrac']) { ?>
                         <td>
                             <form method="POST" action="/ordre">
                                 <input type="hidden" name="nom" value="<?php echo htmlspecialchars($ordre1['Nom_club']); ?>">
@@ -51,8 +60,10 @@ class Ordre {
 
                             </form>
                         </td>
+                    <?php } ?>
                     </tr>
                 <?php } ?>
+                <?php if ($_SESSION['id_tenrac']) { ?>
                     <tr>
                         <form method="POST" action="/ordre">
                             <td> <input type="text" name="nom" placeholder="Nom du club" style="width: 95%;" required> </td>
@@ -60,10 +71,25 @@ class Ordre {
                             <td> <button type="submit" name="add" class="btn-ajouter">Ajouter</button> </td>
                         </form>
                     </tr>
+                <?php } ?>
                 </tbody>
-
             </table>
 
+            <div class="pagination">
+                <?php if ($this->currentPage > 1): ?>
+                    <a href="/ordre?page=<?php echo $this->currentPage - 1; ?>">Précédent</a>
+                <?php endif; ?>
+
+                <?php for ($i = 1; $i <= $this->totalPages; $i++): ?>
+                    <a href="/ordre?page=<?php echo $i; ?>" class="<?php echo ($i === $this->currentPage) ? 'active' : ''; ?>">
+                        <?php echo $i; ?>
+                    </a>
+                <?php endfor; ?>
+
+                <?php if ($this->currentPage < $this->totalPages): ?>
+                    <a href="/ordre?page=<?php echo $this->currentPage + 1; ?>">Suivant</a>
+                <?php endif; ?>
+            </div>
         </main>
         <?php
     }

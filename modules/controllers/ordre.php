@@ -45,10 +45,18 @@ class Ordre {
             }
         }
 
-        $result = $ordreModel->returnAll();
+
+        $limit = 5;
+        $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+        $offset = ($page - 1) * $limit;
+
+        $result = $ordreModel->returnAll($limit, $offset);
+
+        $totalClubs = $ordreModel->countAll();
+        $totalPages = ceil($totalClubs / $limit);
 
 
-        $view = new \Blog\Views\Ordre($result);
+        $view = new \Blog\Views\Ordre($result, $page, $totalPages);
         $layout = new Layout($title, $description, $cssFilePath, $jsFilePath);
         $layout->renderTop();
         $view->showView();

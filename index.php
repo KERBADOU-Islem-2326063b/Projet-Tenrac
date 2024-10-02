@@ -54,7 +54,7 @@ if (!isset($_SESSION['id_tenrac'])) {
 /**
  * Initialisation du routage des URI
  */
-$router = new Router($_SERVER['REQUEST_URI']);
+$router = new Router(strtok($_SERVER['REQUEST_URI'], '?'));
 $router->get('/', function(){ (new \Blog\Controllers\Homepage())->show(); });
 $router->get('/homepage', function(){ (new \Blog\Controllers\Homepage())->show();  });
 $router->get('/hello', function(){ echo 'Bonjour'; });

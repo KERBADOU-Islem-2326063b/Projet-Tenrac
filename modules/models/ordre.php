@@ -17,13 +17,16 @@ class Ordre
 
     /**
      * Récupère les clubs en fonction du numéro de la page demandé,
-     * @param int $page numéro de la page souhaité
+     * @param int $limit nombre de club affiché sur la page
+     * @param int $offset permet de prendre les n(limit) clubs suivant
      * @return array
      */
-    public function returnAll() {
+    public function returnAll($limit, $offset) {
         $db = $this->db;
-        $query = 'SELECT * FROM club';
+        $query = 'SELECT * FROM club LIMIT :limit OFFSET :offset';
         $stmt = $db->getConn()->prepare($query);
+        $stmt->bindParam(':limit', $limit, \PDO::PARAM_INT );
+        $stmt->bindParam(':offset', $offset, \PDO::PARAM_INT);
         $stmt->execute();
 
         $result = $stmt->fetchAll($db->getConn()::FETCH_ASSOC);
@@ -32,7 +35,20 @@ class Ordre
             return $result;
         }
 
-        return null;
+        return [];
+    }
+
+    /**
+     * Compte le nombre total de club
+     * @return int
+     */
+    public function countAll(): int {
+        $db = $this->db;
+        $query = 'SELECT COUNT(*) as total FROM club';
+        $stmt = $db->getConn()->prepare($query);
+        $stmt->execute();
+
+        return $stmt->fetchColumn();
     }
 
     /**
