@@ -77,6 +77,8 @@ $router->post('/account', function() {
 
 $router->post('/members', function(){ (new \Blog\Controllers\Members())->show();  });
 
+$router->get('/repas', function(){ (new \Blog\Controllers\Repas())->show();  });
+
 try {
     $router->run();
 } catch (RouterException $e) {
