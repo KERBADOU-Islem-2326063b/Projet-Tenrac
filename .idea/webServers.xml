@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="00463ec5-9dff-4968-893b-1e0d592cba35" name="tenrac">
+        <fileTransfer rootFolder="/home/daphne" accessType="SFTP" host="ssh-daphne.alwaysdata.net" port="22" sshConfigId="f855467d-9604-4274-8bc4-39e2019b0e09" sshConfig="daphne@ssh-daphne.alwaysdata.net:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

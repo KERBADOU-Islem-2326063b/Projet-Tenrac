@@ -7,6 +7,10 @@ class Layout {
 
     /**
      * Affichage du rendu du menu supérieur du layout
+     * @param string $title titre
+     * @param string $description description
+     * @param string $cssFilePath chemin css
+     * @param string $jsFilePath chemin js
      * @return void
      */
     public function renderTop(string $title, string $description, string $cssFilePath, string $jsFilePath): void {
@@ -35,7 +39,7 @@ class Layout {
                     <a id="closeBtn" href="#" class="close">×</a>
                     <ul id = "menu">
                         <li><a class="a-header" href="#">REPAS</a></li>
-                        <li><a class="a-header" href="#">PLATS</a></li>
+                        <li><a class="a-header" href="/plats">PLATS</a></li>
                         <li><a class="a-header" href="/ordre">L'ORDRE</a></li>
                         <li><a class="a-header" href="/members">MEMBRES</a></li>
                         <?php
@@ -59,7 +63,7 @@ class Layout {
                 <a href="/homepage"><img alt="Logo des tenracs" src="https://i.imgur.com/FR6znMh.png" width="220" height="65" class="logo"></a>
                 <ul class="menu">
                     <li><a class="a-header" href="#">REPAS</a></li>
-                    <li><a class="a-header" href="#">PLATS</a></li>
+                    <li><a class="a-header" href="/plats">PLATS</a></li>
                     <li><a class="a-header" href="/ordre">L'ORDRE</a></li>
                     <li><a class="a-header" href="/members">MEMBRES</a></li>
                     <?php
