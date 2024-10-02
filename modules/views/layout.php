@@ -63,7 +63,11 @@ class Layout {
                 <a href="/homepage"><img alt="Logo des tenracs" src="https://i.imgur.com/FR6znMh.png" width="220" height="65" class="logo"></a>
                 <ul class="menu">
                     <li><a class="a-header" href="#">REPAS</a></li>
+<<<<<<< HEAD
+                    <li><a class="a-header" href="#">PLATS</a></li>
+=======
                     <li><a class="a-header" href="/plats">PLATS</a></li>
+>>>>>>> 712f27059d9b7df9adb954c312fa6b81935119e4
                     <li><a class="a-header" href="/ordre">L'ORDRE</a></li>
                     <li><a class="a-header" href="/members">MEMBRES</a></li>
                     <?php

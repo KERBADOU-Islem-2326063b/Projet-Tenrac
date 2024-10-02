@@ -91,6 +91,8 @@ $router->post('/ordre', function() {
 $router->post('/members', function(){ (new \Blog\Controllers\Members())->show();  });
 $router->post('/plats', function(){ (new \Blog\Controllers\Plats())->show();});
 
+$router->get('/repas', function(){ (new \Blog\Controllers\Repas())->show();  });
+
 try {
     $router->run();
 } catch (RouterException $e) {
