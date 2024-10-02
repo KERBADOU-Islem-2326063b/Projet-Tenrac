@@ -12,6 +12,7 @@ class Login {
     /**
      * Liaison entre la vue et le layout et affichage
      * Gestion de la soumission du formulaire de connexion
+     * @return void
      */
     public function show(): void {
         $title = "Connexion";

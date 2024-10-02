@@ -12,6 +12,7 @@ class Account {
     /**
      * Liaison entre la vue et le layout et affichage
      * Récupération des informations du compte courant
+     * @return void
      */
     public function show(): void {
 
