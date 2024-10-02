@@ -72,30 +72,6 @@ class Layout {
                     }?>
                 </ul>
             </div>
-            <a href="#" id="openBtn">
-                  <span class="burger-icon">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </span>
-            </a>
-            <a href="/homepage"><img alt="Logo des tenracs" src="https://i.imgur.com/FR6znMh.png" width="220" height="65" class="logo"></a>
-            <ul class="menu">
-                <li><a class="a-header" href="#">REPAS</a></li>
-                <li><a class="a-header" href="#">PLATS</a></li>
-                <li><a class="a-header" href="#">L'ORDRE</a></li>
-                <li><a class="a-header" href="/members">MEMBRES</a></li>
-                <?php
-                if ($_SESSION['id_tenrac']) {
-                    ?>
-                    <li><a class="a-header" href="/account">DECONNEXION</a></li>
-                <?php }
-                else { ?>
-                    <li><a class="a-header" href="/login">CONNEXION</a></li>
-                    <?php
-                }?>
-            </ul>
-        </div>
         <div class="header-right">
             <?php echo $_SESSION['id_tenrac'];?>
             <img alt="Icone de connexion" src="https://i.imgur.com/Uw4eL5a.png" width="40" height="38" class="logo">
@@ -111,9 +87,9 @@ class Layout {
     public function renderBottom(): void {
 ?>
     <footer>
-        <div class ="W3C-logo">
+        <div class="W3C-logo">
             <p>
-                <a href="https://jigsaw.w3.org/css-validator/check/referer">
+                <a href="<?php echo 'https://validator.w3.org/nu/?doc=https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>">
                     <img src="https://i.imgur.com/O6cKBc5.png"
                          alt="Validation HTML" id="html5Validator">
                 </a>
