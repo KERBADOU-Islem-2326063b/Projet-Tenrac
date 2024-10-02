@@ -12,6 +12,7 @@ class Ordre {
     /**
      * Liaison entre la vue et le layout et affichage
      * Gestion de l'ordre des Ternac
+     * @return void
      */
     public function show(): void {
         $title = "Clubs";

@@ -25,7 +25,7 @@ class Layout {
             <meta name="keywords" content="Tenrac, tenders, poulet, raclette, secte">
             <meta name="author" content="KERBADOU Islem, ODERZO Flavio, TRAN Thomas, ALVARES Titouan, AVIAS Daphné">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link rel="icon" href="https://i.imgur.com/yoJJvM6.png">
+            <link rel="icon" href="tenrac-icon.ico">
             <title><?php echo $title; ?></title>
         </head>
         <body>
