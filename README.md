@@ -21,4 +21,4 @@ Le site web est :
 - Accesible
 - Référencé via Google
 
-Développé par ALVARES Titouan, AVIAS Daphné, ODERZO Flavio, PELLET Casimir, TRAN Thomas
+Développé par ALVARES Titouan, AVIAS Daphné, KERBADOU Islem, ODERZO Flavio, PELLET Casimir, TRAN Thomas
