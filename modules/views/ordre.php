@@ -34,22 +34,23 @@ class Ordre {
                     ?>
 
                     <tr>
-                        <td> <?php echo htmlspecialchars($ordre1['Nom_club']); ?></td>
+                        <td> <?php echo htmlspecialchars($ordre1['nom_club']); ?></td>
                         <td> <?php echo htmlspecialchars($ordre1['adresse_postale']); ?></td>
                         <?php if ($_SESSION['id_tenrac']) { ?>
                             <td>
+                            <?php if ($ordre1['nom_club'] !== 'ORDRE DES TENRACS') { ?>
                                 <form class="supp" method="POST" action="/ordre">
                                     <label for="oldNomU">
-                                        <input id="oldNomU" type="hidden" name="nom" value="<?php echo htmlspecialchars($ordre1['Nom_club']); ?>">
+                                        <input id="oldNomU" type="hidden" name="nom" value="<?php echo htmlspecialchars($ordre1['nom_club']); ?>">
                                     </label>
                                     <button type="submit" name="delete" class="btn-supprimer">Supprimer</button>
                                 </form>
-
+                            <?php } ?>
                                 <form class="modif" method="POST" action="/ordre">
                                     <button type="submit" name="update" class="btn-modifier">Modifier</button>
                                     <div>
                                         <label for="oldNomU">
-                                            <input id="oldNom" type="hidden" name="oldNom" value="<?php echo htmlspecialchars($ordre1['Nom_club']); ?>"/>
+                                            <input id="oldNom" type="hidden" name="oldNom" value="<?php echo htmlspecialchars($ordre1['nom_club']); ?>"/>
                                         </label>
                                         <label for="adresseU">
                                             <input id="adresseU" type="text" name="adresse" value="<?php echo htmlspecialchars($ordre1['adresse_postale']); ?>" required/>

@@ -112,14 +112,15 @@ td input[type="text"] {
     text-align: center;
 }
 
-button[type="submit"]{
+button{
     width: 7em;
     height: 2em;
     text-align: center;
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    border: 2px solid #834f00
+    align-items: center;
+    border: 2px solid #834f00;
+    padding: 0;
 }
 
 .celluleAjout {

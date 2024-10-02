@@ -59,7 +59,7 @@ class Ordre
      */
     public function addOrdre(string $nom, string $adresse): void {
         $db = $this->db;
-        $query = 'INSERT INTO club (Nom_club, adresse_postale) VALUES (UCASE(:nom), UCASE(:adresse))';
+        $query = 'INSERT INTO club (nom_club, adresse_postale) VALUES (UCASE(:nom), UCASE(:adresse))';
         $stmt = $db->getConn()->prepare($query);
         $stmt->bindParam(':nom', $nom);
         $stmt->bindParam(':adresse', $adresse);
@@ -82,7 +82,7 @@ class Ordre
      */
     public function deleteOrdre($nom): void {
         $db = $this->db;
-        $query = 'DELETE FROM club WHERE Nom_club = :nom';
+        $query = 'DELETE FROM club WHERE nom_club = :nom';
         $stmt = $db->getConn()->prepare($query);
         $stmt->bindParam(':nom', $nom);
         $stmt->execute();
@@ -98,7 +98,7 @@ class Ordre
      */
     public function updateOrdre($oldNom, $adresse): void{
         $db = $this->db;
-        $query = 'UPDATE club SET adresse_postale = UCASE(:adresse) WHERE Nom_club = :oldNom';
+        $query = 'UPDATE club SET adresse_postale = UCASE(:adresse) WHERE nom_club = :oldNom';
         $stmt = $db->getConn()->prepare($query);
         $stmt->bindParam(':oldNom', $oldNom);
         $stmt->bindParam(':adresse', $adresse);
