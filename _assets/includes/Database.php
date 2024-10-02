@@ -5,7 +5,7 @@
 class Database {
     private string $host = "mysql-tenrac.alwaysdata.net";
     private string $user = "tenrac";
-    private string $pass = "JdozlVeieo628hK";
+    private string $pass = "JdozlVeieo628hK!";
     private string $dbname = "tenrac_db";
     private PDO $conn;
     /**
