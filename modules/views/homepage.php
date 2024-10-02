@@ -6,9 +6,7 @@ class Homepage {
         ?>
         <main>
             <h1>Bienvenue chez les Tenrac !</h1>
-            <p>Tenrac a pour but de réunir des adeptes de tenders de poulet à la raclette. Un tenrac est avant tout loyal à ces activités. Apprennez la vie, goûtez avec nous aux différentes recettes de poulet à la raclette.</p>
-            <p>Sur ce site, vous pourrez rejoindre un <a href="/clubs">club</a> et voir leurs informations, voir la liste des <a href="/repas">repas</a> et plats ainsi que leurs ingrédiants, et plus encore !</p>
-            <p> Du fromage, et la meilleure viande au monde ... Qu'attendez vous,  <a href="/login">rejoingez nous !</a></p>
+
             <div class="carousel">
                 <div class="carousel-container">
                     <div class="carousel-slide">
@@ -29,10 +27,19 @@ class Homepage {
                     </div>
                 </div>
             </div>
+
             <div class="carousel-controls">
                 <button class="prev" id="prevBtn">&#10094;</button>
                 <button class="next" id="nextBtn">&#10095;</button>
             </div>
+
+            <section class="about-section">
+                <h2>À propos de Tenrac</h2>
+                <p>Tenrac a pour but de réunir des adeptes de tenders de poulet à la raclette. Un tenrac est avant tout loyal à ces activités. Apprenez la vie, goûtez avec nous aux différentes recettes de poulet à la raclette.</p>
+                <p>Sur ce site, vous pourrez rejoindre un <a href="/clubs">club</a> et voir leurs informations, voir la liste des <a href="/repas">repas</a> et plats ainsi que leurs ingrédients, et plus encore !</p>
+                <p>Du fromage, et la meilleure viande au monde ... Qu'attendez-vous, <a href="/login">rejoignez-nous !</a></p>
+            </section>
+
             <div class="testimonials">
                 <h2>Ce que nos membres disent</h2>
                 <div class="testimonial-bubble">
