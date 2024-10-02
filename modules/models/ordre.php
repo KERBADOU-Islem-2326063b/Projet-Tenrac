@@ -59,11 +59,19 @@ class Ordre
      */
     public function addOrdre(string $nom, string $adresse): void {
         $db = $this->db;
-        $query = 'INSERT INTO club (Nom_club, adresse_postale) VALUES (:nom, :adresse)';
+        $query = 'INSERT INTO club (Nom_club, adresse_postale) VALUES (UCASE(:nom), UCASE(:adresse))';
         $stmt = $db->getConn()->prepare($query);
         $stmt->bindParam(':nom', $nom);
         $stmt->bindParam(':adresse', $adresse);
-        $stmt->execute();
+        try {
+            $stmt->execute();
+        } catch (\PDOException $e) {
+            if ($e->getCode() == 23000) {
+                throw new \Exception("Le club '$nom' existe déjà.");
+            } else {
+                throw $e;
+            }
+        }
     }
 
 
@@ -88,11 +96,10 @@ class Ordre
      * @param string $adresse adresse du club
      * @return void
      */
-    public function updateOrdre($oldNom, $newNom, $adresse): void{
+    public function updateOrdre($oldNom, $adresse): void{
         $db = $this->db;
-        $query = 'UPDATE club SET Nom_club = :newNom, adresse_postale = :adresse WHERE Nom_club = :oldNom';
+        $query = 'UPDATE club SET adresse_postale = UCASE(:adresse) WHERE Nom_club = :oldNom';
         $stmt = $db->getConn()->prepare($query);
-        $stmt->bindParam(':newNom', $newNom);
         $stmt->bindParam(':oldNom', $oldNom);
         $stmt->bindParam(':adresse', $adresse);
         $stmt->execute();
