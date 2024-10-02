@@ -29,7 +29,7 @@ class Layout {
             <meta name="keywords" content="Tenrac, tenders, poulet, raclette, secte">
             <meta name="author" content="KERBADOU Islem, ODERZO Flavio, TRAN Thomas, ALVARES Titouan, AVIAS Daphné">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link rel="icon" href="https://i.imgur.com/yoJJvM6.png">
+            <link rel="icon" href="tenrac-icon.ico">
             <title><?php echo $title; ?></title>
         </head>
         <body>
@@ -40,7 +40,7 @@ class Layout {
                     <ul id = "menu">
                         <li><a class="a-header" href="#">REPAS</a></li>
                         <li><a class="a-header" href="/plats">PLATS</a></li>
-                        <li><a class="a-header" href="#">L'ORDRE</a></li>
+                        <li><a class="a-header" href="/ordre">L'ORDRE</a></li>
                         <li><a class="a-header" href="/members">MEMBRES</a></li>
                         <?php
                         if ($_SESSION['id_tenrac']) {
@@ -64,7 +64,7 @@ class Layout {
                 <ul class="menu">
                     <li><a class="a-header" href="#">REPAS</a></li>
                     <li><a class="a-header" href="/plats">PLATS</a></li>
-                    <li><a class="a-header" href="#">L'ORDRE</a></li>
+                    <li><a class="a-header" href="/ordre">L'ORDRE</a></li>
                     <li><a class="a-header" href="/members">MEMBRES</a></li>
                     <?php
                     if ($_SESSION['id_tenrac']) {
@@ -77,12 +77,12 @@ class Layout {
                     }?>
                 </ul>
             </div>
-        <div class="header-right">
-            <?php echo $_SESSION['id_tenrac'];?>
-            <img alt="Icone de connexion" src="https://i.imgur.com/Uw4eL5a.png" width="40" height="38" class="logo">
-        </div>
-    </header>
-<?php
+            <div class="header-right">
+                <?php echo $_SESSION['id_tenrac'];?>
+                <img alt="Icone de connexion" src="https://i.imgur.com/Uw4eL5a.png" width="40" height="38" class="logo">
+            </div>
+        </header>
+        <?php
     }
 
     /**
@@ -90,30 +90,30 @@ class Layout {
      * @return void
      */
     public function renderBottom(): void {
-?>
-    <footer>
-        <div class="W3C-logo">
-            <p>
-                <a target="_blank" href="<?php echo 'https://validator.w3.org/nu/?doc=https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>">
-                    <img src="https://i.imgur.com/O6cKBc5.png"
-                         alt="Validation HTML" id="html5Validator">
-                </a>
-            </p>
-            <p>
-                <a target="_blank" href="https://jigsaw.w3.org/css-validator/check/referer">
-                    <img src="https://jigsaw.w3.org/css-validator/images/vcss-blue"
-                         alt="Validation CSS" id="css3Validator">
-                </a>
-            </p>
-        </div>
-        <div class="footer-text">
-            <p><strong>Adresse :</strong> 105 rue de la raclette, 1934 Bagnes, Suisse. - <strong>Email :</strong> tenrac@poulet.fr - <strong>Téléphone :</strong> 06.12.34.56.78</p>
-        </div>
-        <p class="copyright">© 2024 Tenrac - All Rights Reserved.</p>
-    </footer>
-    </body>
-    </html>
-<?php
+        ?>
+        <footer>
+            <div class="W3C-logo">
+                <p>
+                    <a target="_blank" href="<?php echo 'https://validator.w3.org/nu/?doc=https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>">
+                        <img src="https://i.imgur.com/O6cKBc5.png"
+                             alt="Validation HTML" id="html5Validator">
+                    </a>
+                </p>
+                <p>
+                    <a target="_blank" href="https://jigsaw.w3.org/css-validator/check/referer">
+                        <img src="https://jigsaw.w3.org/css-validator/images/vcss-blue"
+                             alt="Validation CSS" id="css3Validator">
+                    </a>
+                </p>
+            </div>
+            <div class="footer-text">
+                <p><strong>Adresse :</strong> 105 rue de la raclette, 1934 Bagnes, Suisse. - <strong>Email :</strong> tenrac@poulet.fr - <strong>Téléphone :</strong> 06.12.34.56.78</p>
+            </div>
+            <p class="copyright">© 2024 Tenrac - All Rights Reserved.</p>
+        </footer>
+        </body>
+        </html>
+        <?php
     }
 }
 ?>

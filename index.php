@@ -76,9 +76,18 @@ $router->post('/login', function() {
 
 $router->get('/account', function(){ (new \Blog\Controllers\Account())->show();  });
 
+$router->get('/ordre', function() {
+    (new \Blog\Controllers\Ordre())->show();
+});
+
 $router->post('/account', function() {
     (new \Blog\Controllers\Account())->show();
 });
+
+$router->post('/ordre', function() {
+    (new \Blog\Controllers\Ordre())->show();
+});
+
 $router->post('/members', function(){ (new \Blog\Controllers\Members())->show();  });
 $router->post('/plats', function(){ (new \Blog\Controllers\Plats())->show();});
 

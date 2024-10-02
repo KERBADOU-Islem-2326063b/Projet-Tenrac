@@ -11,6 +11,7 @@ class Homepage {
     /**
      * Liaison entre la vue et le layout et affichage
      * Pas de liaison avec un contrôleur, la page étant statique
+     * @return void
      */
     public function show(): void {
 

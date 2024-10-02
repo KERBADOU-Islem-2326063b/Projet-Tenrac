@@ -1,0 +1,159 @@
+@import "layout.css";
+
+.ordre {
+    font-size: 40px;
+    color: #ffc13a;
+    margin: 1em 2em ;
+    border-bottom: 3px solid #ffc84d; ;
+
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+.tableOrdre {
+    table-layout: auto;
+    border: 6px solid #834f00;
+    border-collapse: collapse;
+    margin: 1em 5% 1em 5%;
+    width: 60%;
+}
+
+
+thead{
+    background-color: #ffc84d;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+thead th:nth-child(1) {
+    width: 33%;
+}
+
+thead th:nth-child(2) {
+    width: 34%;
+}
+
+thead th:nth-child(3) {
+    width: 33%;
+}
+
+
+th,td {
+    padding: 1em 1em 1em 1em;
+    border : 2px solid #834f00;
+    text-align: center;
+    font-weight: bold;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #ffae67;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #cf7327;
+}
+
+
+.modif{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pagination {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.pagination a {
+    padding: 10px 15px;
+    margin: 0 5px;
+    text-decoration: none;
+    color: var(--main-color);
+    border: 1px solid var(--main-color);
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.pagination a.active {
+    background-color: var(--main-color);
+    color: white;
+}
+
+.pagination a:hover {
+    background-color: rgba(255, 99, 71, 0.7);
+    color: white;
+}
+
+.pagination a.prev,
+.pagination a.next {
+    font-weight: bold;
+}
+
+form input[type="text"] {
+    text-transform: uppercase;
+    border: 2px solid #834f00;
+    border-radius: 5px;
+}
+
+td input[type="text"] {
+    text-transform: uppercase;
+    border: 2px solid #834f00;
+    border-radius: 5px;
+}
+
+.supp {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+}
+
+button{
+    width: 7em;
+    height: 2em;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #834f00;
+    padding: 0;
+}
+
+.celluleAjout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0px;
+}
+
+.error-message {
+    color: red;
+    font-weight: bold;
+    text-align: left;
+}
+
+@media (max-width: 768px) {
+    table{
+        width: 100%;
+    }
+
+    .ordre {
+        font-size: 25px;
+    }
+
+    thead {
+        font-size: 12px;
+    }
+
+    tbody {
+        font-size: 9px;
+    }
+
+    button{
+        font-size: 12px;
+    }
+}
