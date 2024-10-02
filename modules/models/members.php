@@ -8,10 +8,12 @@ use PDOException;
 /**
  * Modèle destiné à effectuer les requêtes sur les table de membres
  */
-class Members {
+class Members
+{
     private Database $db;
 
-    public function __construct(Database $db) {
+    public function __construct(Database $db)
+    {
         $this->db = $db;
     }
 
@@ -22,9 +24,7 @@ class Members {
      */
     public function getMembers(int $page): bool|array
     {
-        $nbTotalMembres = $this->getMembersCount();
         $parPage = 5;
-        $nbPages = ceil($nbTotalMembres / $parPage);
 
         $db = $this->db->getConn();
         $stmt = "SELECT * FROM membre LIMIT " . $parPage * ($page - 1) . "," . $parPage * $page;
@@ -37,7 +37,8 @@ class Members {
      * @param string $id son id de tenrac
      * @return true|string true si réussi, un string sinon
      */
-    public function deleteMember(string $id): true|string {
+    public function deleteMember(string $id): true|string
+    {
         $db = $this->db->getConn();
         $query = "DELETE FROM membre WHERE id_tenrac = :id";
         $stmt = $db->prepare($query);
@@ -46,7 +47,7 @@ class Members {
         try {
             $stmt->execute();
             return true;
-        } catch(PDOException $e) {
+        } catch (PDOException $e) {
             return $e->getMessage();
         }
     }
@@ -55,14 +56,15 @@ class Members {
      * Renvoie le nombre total de membres dans la base de données.
      * @return int
      */
-    public function getMembersCount(): int {
+    public function getMembersCount(): int
+    {
         $db = $this->db->getConn();
         $stmt = "SELECT COUNT(*) AS nb_membres FROM membre";
         $query = $db->prepare($stmt);
         $query->execute();
         $result = $query->fetch();
 
-        return (int) $result['nb_membres'];
+        return (int)$result['nb_membres'];
 
     }
 
@@ -70,7 +72,8 @@ class Members {
      * Renvoie le nombre de pages maximales, 5 éléments par page
      * @return int
      */
-    public function getMaxPages(): int {
+    public function getMaxPages(): int
+    {
         $nbTotalMembres = $this->getMembersCount();
         $parPage = 5;
         return ceil($nbTotalMembres / $parPage);
@@ -93,7 +96,7 @@ class Members {
      * @return bool|string true si réussi, string sinon
      */
     public function addNewMember($id_tenrac, $mdp_tenrac, $nom, $courriel, $adresse_postale,
-        $num_tel, $grade, $rang, $titre, $dignite): bool|string
+                                 $num_tel, $grade, $rang, $titre, $dignite): bool|string
     {
         $db = $this->db->getConn();
         $query = "INSERT INTO membre (id_tenrac, mdp_tenrac, nom_, courriel, adresse_postale, num_tel, rang, grade, titre, dignite)
@@ -119,6 +122,11 @@ class Members {
         }
     }
 
+    /**
+     * Récupère les valeurs POST écrites par l'utilisateur pour les envoyer dans la fonction
+     *  d'ajout
+     * @return bool|string true si réussi, string sinon
+     */
     public function addNewMemberFromPost(): bool|string
     {
         $id_tenrac = strtoupper($_POST["id"]);
@@ -133,5 +141,66 @@ class Members {
         $dignite = $_POST["dignite"];
 
         return $this->addNewMember($id_tenrac, $mdp_tenrac, $nom, $courriel, $adresse_postale, $num_tel, $grade, $rang, $titre, $dignite);
+    }
+
+
+    /**
+     * Modifie un membre tenrac existant dans la base de données,
+     * avec les nombreux paramètres que ce
+     * gourou de prof nous demande.
+     * @param $id_tenrac
+     * @param $courriel
+     * @param $adresse_postale
+     * @param $num_tel
+     * @param $grade
+     * @param $rang
+     * @param $titre
+     * @param $dignite
+     * @return bool|string
+     */
+    public function modifMember($id_tenrac, $courriel, $adresse_postale, $num_tel, $grade,
+                                $rang, $titre, $dignite): bool|string
+    {
+        $db = $this->db->getConn();
+        $query = "UPDATE membre SET courriel = :courriel, adresse_postale = :adresse_postale, 
+                  num_tel = :num_tel, grade = :grade, titre = :titre, dignite = :dignite, rang = :rang
+                  WHERE id_tenrac = :id_tenrac";
+        $stmt = $db->prepare($query);
+
+        $stmt->bindParam(':id_tenrac', $id_tenrac);
+        $stmt->bindParam(':courriel', $courriel);
+        $stmt->bindParam(':adresse_postale', $adresse_postale);
+        $stmt->bindParam(':num_tel', $num_tel);
+        $stmt->bindParam(':grade', $grade);
+        $stmt->bindParam(':titre', $titre);
+        $stmt->bindParam(':dignite', $dignite);
+        $stmt->bindParam(':rang', $rang);
+
+        try {
+            $stmt->execute();
+            return true;
+        } catch (PDOException $e) {
+            return $e->getMessage();
+        }
+    }
+
+    /**
+     * Récupère les valeurs POST écrites par l'utilisateur pour les envoyer dans la fonction
+     * de modification
+     * @return bool|string true si réussi, string sinon
+     */
+    public function modifMemberFromPost(): bool|string
+    {
+        $id_tenrac = strtoupper($_POST["toModifId"]);
+        $courriel = $_POST["modif_courriel"];
+        $adresse_postale = strtoupper($_POST["modif_adresse_postale"]);
+        $num_tel = $_POST["modif_num_tel"];
+        $grade = $_POST["modif_grade"];
+        $rang = $_POST["modif_rang"];
+        $titre = $_POST["modif_titreTenrac"];
+        $dignite = $_POST["modif_dignite"];
+
+
+        return $this->modifMember($id_tenrac, $courriel, $adresse_postale, $num_tel, $grade, $rang, $titre, $dignite);
     }
 }

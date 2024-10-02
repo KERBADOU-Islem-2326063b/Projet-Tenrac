@@ -14,7 +14,7 @@ class Members {
         $title = "Membres";
         $description = "Site officiel des Tenrac";
         $cssFilePath = '_assets/styles/members.css';
-        $jsFilePath = '';
+        $jsFilePath = '_assets/javascript/members.js';
 
         $model = new \Blog\Models\Members(\Database::getInstance());
 
