@@ -36,7 +36,7 @@ class Layout {
                     <ul id = "menu">
                         <li><a class="a-header" href="#">REPAS</a></li>
                         <li><a class="a-header" href="#">PLATS</a></li>
-                        <li><a class="a-header" href="#">L'ORDRE</a></li>
+                        <li><a class="a-header" href="/ordre">L'ORDRE</a></li>
                         <li><a class="a-header" href="/members">MEMBRES</a></li>
                         <?php
                         if ($_SESSION['id_tenrac']) {
@@ -60,7 +60,7 @@ class Layout {
                 <ul class="menu">
                     <li><a class="a-header" href="#">REPAS</a></li>
                     <li><a class="a-header" href="#">PLATS</a></li>
-                    <li><a class="a-header" href="#">L'ORDRE</a></li>
+                    <li><a class="a-header" href="/ordre">L'ORDRE</a></li>
                     <li><a class="a-header" href="/members">MEMBRES</a></li>
                     <?php
                     if ($_SESSION['id_tenrac']) {
