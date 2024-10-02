@@ -44,7 +44,8 @@ class Plats {
 
                     <?php
                     foreach ($ingredients as $ingredient): ?>
-                    <p class="ingredient"> <?= htmlspecialchars($ingredient['nom_aliment']);?></p>
+                    <p class="ingredient"> <?= htmlspecialchars($ingredient['nom_aliment']);?> <strong>
+                        <?php isset($_SESSION["id_tenrac"]) ?? $this->model->isAllergic($ingredient['nom_aliment']) ?></strong></p>
                     <?php endforeach;?>
 
                     <form class="modif" method="POST" action="/plats">
@@ -79,7 +80,7 @@ class Plats {
             if(isset($_SESSION['id_tenrac'])): ?>
                 <form method="POST" action="/plats">
                     <input type="text" name="nom_plat" placeholder="Nom du plat" style="width: 95%;" required>
-                    <input type="text" name="nom_aliment" placeholder="Nom d'un ingrédient (si plus, les séparer par ';')" style="width: 95%" required>
+                    <input type="text" name="nom_aliment" placeholder="Nom d'un ingrédient (si plusieurs, les séparer par ';')" style="width: 95%" required>
                     <button type="submit" name="add" class="btn-ajouter">Ajouter plat</button>
                 </form>
             <?php endif; ?>

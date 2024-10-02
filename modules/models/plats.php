@@ -22,9 +22,7 @@ class Plats {
      * @return bool|array l'array de tous les plats, false si erreur ou aucune donnée
      */
     public function getPlats(int $page): bool|array{
-        //$nbTotPlats = $this->getPlatsCount();
         $parPage = 4;
-        //$nbPages = ceil($nbTotPlats / $parPage);
         $offset = ($page-1)*$parPage;
         $db = $this->db->getConn();
         $stmt = "SELECT * FROM plat LIMIT $offset, $parPage";
@@ -47,7 +45,7 @@ class Plats {
 
         $result = $stmt->fetchAll($db->getConn()::FETCH_ASSOC);
 
-        return $result ?:null;
+        return $result ?:[];
     }
 
     /**
@@ -183,7 +181,7 @@ class Plats {
      */
     public function addIngredients(string $nom_plat, string $nom_aliment): bool|string {
         $db = $this->db->getConn();
-        $query = 'INSERT INTO compose_plat VALUES (:nom_aliment) WHERE nom_plat = :nom_plat';
+        $query = 'INSERT INTO compose_plat (nom_plat,nom_aliment) VALUES (:nom_plat, :nom_aliment)';
         $stmt = $db->prepare($query);
         $stmt->bindParam(':nom_plat', $nom_plat);
         $stmt->bindParam(':nom_aliment', $nom_aliment);
@@ -194,6 +192,27 @@ class Plats {
         } catch (PDOException $e) {
             return $e->getMessage();
         }
+    }
+
+    /**
+     * Vérifie si le membre est allergique à un aliment en particulier
+     * @param string $nom_aliment le nom de l'aliment
+     * @return bool string si réussi, string sinon
+     */
+    public function isAllergique(string $nom_aliment): bool {
+        $db = $this->db->getConn();
+        $query = 'SELECT nom_aliment FROM est_allergique WHERE id_tenrac := :id_tenrac AND nom_aliment = :nom_aliment';
+        $stmt = $db->prepare($query);
+        $stmt->bindParam(':id_tenrac', $_SESSION['id_tenrac']);
+        $stmt->bindParam(':nom_aliment', $nom_aliment);
+
+        try {
+            $stmt->execute();
+            return true;
+        } catch (PDOException $e) {
+            return $e->getMessage();
+        }
+
     }
 
 }
