@@ -69,14 +69,13 @@ class Plats {
     }
 
     /**
-     * Supprime un aliment en fonction de son nom et le nom du plat
+     * Retire le lien d'un plat et de ses aliments en fonction du nom du plat
      * @param string $nom_plat le nom du plat
-     * @param string $nom_aliment le nom de l'aliment
      * @return true|string true si réussi, un string sinon
      */
-    public function removeIngredient(string $nom_plat, string $nom_aliment): true|string {
+    public function removeComposePlat(string $nom_plat, string $nom_aliment): true|string {
         $db = $this->db->getConn();
-        $query = 'DELETE FROM compose_plat WHERE nom_aliment :nom_aliment AND nom_plat = :nom_plat';
+        $query = 'DELETE FROM compose_plat WHERE nom_plat = :nom_plat AND nom_aliment = :nom_aliment';
         $stmt = $db->prepare($query);
         $stmt->bindParam(':nom_plat', $nom_plat);
         $stmt->bindParam(':nom_aliment', $nom_aliment);
@@ -87,6 +86,7 @@ class Plats {
         } catch(PDOException $e) {
             return $e->getMessage();
         }
+
     }
 
     /**
@@ -114,44 +114,30 @@ class Plats {
         return ceil ($nbTotPlats / $parPage);
     }
 
-    /**
-     * Fait la mise à jour d'un plat en fonction de son nom
-     * @param string $nom_plat le nom du plat
-     * @return bool|string true si réussi, un string sinon
-     */
-    public function updatePlat(string $nom_plat): bool|string {
-        $db = $this->db->getConn();
-        $query = 'UPDATE plat SET nom_plat = :nom_plat';
-        $stmt = $db->prepare($query);
-        $stmt->bindParam(':nom_plat', $nom_plat);
-
-        try {
-            $stmt->execute();
-            return true;
-        } catch (PDOException $e) {
-            return $e->getMessage();
-        }
-    }
 
     /**
      * Failt la mise à jour d'un ingredient en fonction d'un nom de plat
-     * @param string $nom_plat
-     * @param string $nom_aliment
+     * @param string $nom_plat nom du plat concerné
+     * @param string $old_nom_aliment ancien aliment à modifier
+     * @param string $new_nom_aliment nouvel aliment
      * @return bool|string
      */
-    public function updateIngredients(string $nom_plat, string $nom_aliment): bool|string {
-        $db = $this->db->getConn();
-        $query = 'UPDATE compose_plat SET nom_aliment = :nom_aliment WHERE nom_plat = :nom_plat';
-        $stmt = $db->prepare($query);
-        $stmt->bindParam(':nom_plat', $nom_plat);
-        $stmt->bindParam(':nom_aliment', $nom_aliment);
+    public function updateIngredients(string $nom_plat, string $old_nom_aliment, string $new_nom_aliment): bool|string {
 
-        try {
-            $stmt->execute();
-            return true;
-        } catch (PDOException $e) {
-            return $e->getMessage();
+        $error = $this->removeComposePlat($nom_plat, $old_nom_aliment);
+
+        if($error !== true) {
+            return $error;
         }
+
+        $error = $this->linkPlatAliment($nom_plat, $new_nom_aliment);
+
+        if($error !== true) {
+            return $error;
+        } else {
+            return true;
+        }
+
     }
 
     /**
@@ -160,8 +146,10 @@ class Plats {
      * @return bool|string true si réussi, string sinon
      */
     public function addPlat(string $nom_plat): bool|string {
+        $nom_plat = strtoupper($nom_plat);
+
         $db = $this->db->getConn();
-        $query = 'INSERT INTO plat VALUES (:nom_plat)';
+        $query = 'INSERT INTO plat (nom_plat) VALUES (:nom_plat)';
         $stmt = $db->prepare($query);
         $stmt->bindParam(':nom_plat', $nom_plat);
 
@@ -179,11 +167,38 @@ class Plats {
      * @param string $nom_aliment le nom de l'aliment
      * @return bool|string string si réussi, string sinon
      */
-    public function addIngredients(string $nom_plat, string $nom_aliment): bool|string {
+    public function linkPlatAliment(string $nom_plat, string $nom_aliment): bool|string {
+        $nom_plat = strtoupper($nom_plat);
+        $nom_aliment = strtoupper($nom_aliment);
+        $nom_aliment = trim(preg_replace('/\s+/',' ', $nom_aliment));
+
         $db = $this->db->getConn();
         $query = 'INSERT INTO compose_plat (nom_plat,nom_aliment) VALUES (:nom_plat, :nom_aliment)';
         $stmt = $db->prepare($query);
+
         $stmt->bindParam(':nom_plat', $nom_plat);
+        $stmt->bindParam(':nom_aliment', $nom_aliment);
+
+        try {
+            $stmt->execute();
+            return true;
+        } catch (PDOException $e) {
+            return $e->getMessage();
+        }
+    }
+
+    /**
+     * Ajoute un aliment à la bd
+     * @param string $nom_aliment aliment à ajouter
+     * @return bool|string true si réussi, string sinon
+     */
+    public function addAliment(string $nom_aliment): bool|string {
+        $nom_aliment = strtoupper($nom_aliment);
+
+        $db = $this->db->getConn();
+        $query = 'INSERT INTO aliment (nom_aliment) VALUES (:nom_aliment)';
+        $stmt = $db->prepare($query);
+
         $stmt->bindParam(':nom_aliment', $nom_aliment);
 
         try {
@@ -199,16 +214,16 @@ class Plats {
      * @param string $nom_aliment le nom de l'aliment
      * @return bool string si réussi, string sinon
      */
-    public function isAllergique(string $nom_aliment): bool {
+    public function isAllergic(string $nom_aliment): bool {
         $db = $this->db->getConn();
-        $query = 'SELECT nom_aliment FROM est_allergique WHERE id_tenrac := :id_tenrac AND nom_aliment = :nom_aliment';
+        $query = 'SELECT nom_aliment FROM est_allergique WHERE id_tenrac = :id_tenrac AND nom_aliment = :nom_aliment';
         $stmt = $db->prepare($query);
         $stmt->bindParam(':id_tenrac', $_SESSION['id_tenrac']);
         $stmt->bindParam(':nom_aliment', $nom_aliment);
 
         try {
             $stmt->execute();
-            return true;
+            return $stmt->fetchColumn() !== false;
         } catch (PDOException $e) {
             return $e->getMessage();
         }

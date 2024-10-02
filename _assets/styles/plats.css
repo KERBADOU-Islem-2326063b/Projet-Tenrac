@@ -1,4 +1,11 @@
 @import "layout.css";
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 img {
     max-width: 100%;
 }
@@ -49,6 +56,18 @@ img {
     width: 300px;
 }
 
+.ingredientDiv {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.deleteIngrButton {
+    width: revert;
+    align-content: center;
+    margin-right: 15px;
+}
+
 .pagination {
     display: flex;
     justify-content: center;
@@ -67,7 +86,7 @@ img {
 }
 
 .pagination a.active {
-    background-color: #d18717;
+    background-color: var(--main-color);
     color: white;
 }
 

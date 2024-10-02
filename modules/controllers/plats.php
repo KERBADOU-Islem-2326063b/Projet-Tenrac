@@ -23,6 +23,7 @@ class Plats {
             if(isset($_POST['delete'])) {
                 $nom_plat = $_POST['nom_plat'];
                 $model->removePlat($nom_plat);
+
             } elseif(isset($_POST['add'])) {
                 $nom_plat = $_POST['nom_plat'];
                 $tousLesIngredients = $_POST['nom_aliment'];
@@ -31,28 +32,37 @@ class Plats {
                 $listeIngredients = explode(";", $tousLesIngredients);
 
                 foreach ($listeIngredients as $ingredient) {
-                    $error = $model->addIngredients($nom_plat, $ingredient);
-                    if ($error !== true) {
-                        echo $error;
-                    }
+                    $model->addAliment($ingredient);
+                    $model->linkPlatAliment($nom_plat, $ingredient);
                 }
-            } elseif(isset($_POST['modif'])) {
+            } elseif(isset($_POST['update'])) {
                 $nom_plat = $_POST['nom_plat'];
-                $model->updatePlat($nom_plat);
 
-                $chaqueingredient = $_POST['nom_aliment'];
-                foreach ($chaqueingredient as $ingredient) {
-                    $model->updateIngredients($nom_plat, $ingredient);
+                $anciensIngredients = $_POST['oldNom_aliments'];
+
+                $nouveauIngredients = $_POST['newNom_aliments'];
+
+                for ($i = 0; $i < count($anciensIngredients); $i++) {
+                    $model->updateIngredients($nom_plat, $anciensIngredients[$i], $nouveauIngredients[$i]);
                 }
+            } elseif(isset($_POST['addAlim'])) {
+                $nom_plat = $_POST['nom_plat'];
+                $nouvelIngredient = $_POST['newNom_aliment'];
+
+                $model->addAliment($nouvelIngredient);
+                $model->linkPlatAliment($nom_plat, $nouvelIngredient);
+            } elseif(isset($_POST['deleteIngredient'])) {
+                $nom_plat = $_POST['deleteFromPlat'];
+                $nom_aliment = $_POST['deleteIngredient'];
+                $model->removeComposePlat($nom_plat, $nom_aliment);
             }
 
         }
 
-
         $view = new \Blog\Views\Plats($model);
 
-        $layout = new Layout($title, $description, $cssFilePath, $jsFilePath);
-        $layout->renderTop();
+        $layout = new Layout();
+        $layout->renderTop($title, $description, $cssFilePath, $jsFilePath);
         $view->showView();
         $layout->renderBottom();
     }

@@ -35,7 +35,7 @@ class Layout {
                     <a id="closeBtn" href="#" class="close">×</a>
                     <ul id = "menu">
                         <li><a class="a-header" href="#">REPAS</a></li>
-                        <li><a class="a-header" href="#">PLATS</a></li>
+                        <li><a class="a-header" href="/plats">PLATS</a></li>
                         <li><a class="a-header" href="#">L'ORDRE</a></li>
                         <li><a class="a-header" href="/members">MEMBRES</a></li>
                         <?php
@@ -59,7 +59,7 @@ class Layout {
                 <a href="/homepage"><img alt="Logo des tenracs" src="https://i.imgur.com/FR6znMh.png" width="220" height="65" class="logo"></a>
                 <ul class="menu">
                     <li><a class="a-header" href="#">REPAS</a></li>
-                    <li><a class="a-header" href="#">PLATS</a></li>
+                    <li><a class="a-header" href="/plats">PLATS</a></li>
                     <li><a class="a-header" href="#">L'ORDRE</a></li>
                     <li><a class="a-header" href="/members">MEMBRES</a></li>
                     <?php
