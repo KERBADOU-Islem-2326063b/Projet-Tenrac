@@ -5,6 +5,19 @@ namespace Blog\Views;
  * Vue de la page des members
  */
 class Members {
+
+    private $grades = [
+    "AFFILIE" => "Affilié",
+    "SYMPATHISANT" => "Sympathisant",
+    "ADHERENT" => "Adhérent",
+    "CHEVALIER" => "Chevalier",
+    "DAME" => "Dame",
+    "GRAND CHEVALIER" => "Grand Chevalier",
+    "HAUTE DAME" => "Haute Dame",
+    "COMMANDEUR" => "Commandeur",
+    "GRAND CROIX" => "Grand’Croix"
+    ];
+
     public function __construct(private readonly \Blog\Models\Members $model) {    }
 
     /**
@@ -57,15 +70,11 @@ class Members {
 
                 <label for="grade">Grade :</label>
                 <select name="grade" id="grade" required>
-                    <option value="AFFILIE">Affilié</option>
-                    <option value="SYMPATHISANT">Sympathisant</option>
-                    <option value="ADHERENT">Adhérent</option>
-                    <option value="CHEVALIER">Chevalier</option>
-                    <option value="DAME">Dame</option>
-                    <option value="GRAND CHEVALIER">Grand Chevalier</option>
-                    <option value="HAUTE DAME">Haute Dame</option>
-                    <option value="COMMANDEUR">Commandeur</option>
-                    <option value="GRAND CROIX">Grand’Croix</option>
+                    <?php
+                    // beaucoup de grades, on utilise une boucle pour rendre le code plus lisible
+                    foreach ($this->grades as $value => $label) {
+                        echo "<option value=\"$value\">$label</option>";
+                    } ?>
                 </select>
 
                 <label for="dignite">Dignité :</label>
@@ -77,6 +86,7 @@ class Members {
             </div>
             <button type="submit" name="addMember">Ajouter le membre</button>
         </div>
+    </form>
 
         <?php
         } // ajout d'un membre
@@ -84,8 +94,7 @@ class Members {
             $error = $this->model->addNewMemberFromPost();
 
             if ($error !== true) { ?>
-                <p class="error">Échec de la création du Tenrac <?=$_POST['id']?>
-                    <br> <?=$error?></p>
+                <p class="error">Échec de la création du Tenrac <?=$_POST['id']?></p>
             <?php } else { ?>
                 <p class="ok">Tenrac créé! Que le gras apporte joie et abondance à ce jeune poussin.</p>
             <?php }
@@ -95,11 +104,12 @@ class Members {
             $error = $this->model->modifMemberFromPost();
 
             if ($error !== true) { ?>
-                <p class="error">Échec de la modification du Tenrac <?=$_POST['toModifId']?>
-                    <br> <?=$error?></p>
+                <p class="error">Échec de la modification du Tenrac <?=$_POST['toModifId']?></p>
             <?php } else { ?>
                 <p class="ok">Tenrac <?=$_POST['toModifId']?> modifié!</p>
             <?php }
+
+            //suppression d'un membre
         } else if (isset($_POST['toDeleteId'])) {
             if($_POST['toDeleteId'] == $_SESSION['id_tenrac']) { // si on supprime le membre qui est connecté dans la session
                 ?>
@@ -108,8 +118,7 @@ class Members {
                 $error = $this->model->deleteMember($_POST['toDeleteId']);
                 if ($error !== true) {  // si kapout alors on récupère l'erreur et on l'affiche
                    ?>
-                    <p class="error"> Échec de la suppression de <?=$_POST['toDeleteId']?>, merci de contacter un administrateur (oops ^^)
-                        <br> <?=$error?></p>
+                    <p class="error"> Échec de la suppression de <?=$_POST['toDeleteId']?>, merci de contacter un administrateur (oops ^^)</p>
                 <?php } else {  // sinon on affiche simplement le message de confirmation
                     ?>
                     <p class="ok"> <?=$_POST['toDeleteId']?> a été supprimé </p>
@@ -119,7 +128,7 @@ class Members {
         }
         ?>
 
-    </form>
+
     <p id="titre"><i>Membres</i></p>
     <?php
 
@@ -156,6 +165,7 @@ class Members {
 
         <div id="modifMenu-<?=$member["id_tenrac"]?>" class="modifMenu modal" style="display: none;">
                 <form method="post">
+                    <h2>Modifier <?=$member["id_tenrac"]?></h2>
                     <input type="hidden" name="toModifId" value="<?=$member["id_tenrac"]?>">
                     <div>
                         <label for="modif_courriel">Courriel:</label>
@@ -182,15 +192,12 @@ class Members {
 
                         <label for="modif_grade">Grade :</label>
                         <select id="modif_grade" name="modif_grade" required>
-                            <option value="AFFILIE" <?php if ($member["grade"] == "AFFILIE") echo "selected"; ?>>Affilié</option>
-                            <option value="SYMPATHISANT" <?php if ($member["grade"] == "SYMPATHISANT") echo "selected"; ?>>Sympathisant</option>
-                            <option value="ADHERENT <?php if ($member["grade"] == "ADHERENT") echo "selected"; ?>">Adhérent</option>
-                            <option value="CHEVALIER" <?php if ($member["grade"] == "CHEVALIER") echo "selected"; ?>>Chevalier</option>
-                            <option value="DAME" <?php if ($member["grade"] == "DAME") echo "selected"; ?>>Dame</option>
-                            <option value="GRAND CHEVALIER" <?php if ($member["grade"] == "GRAND CHEVALIER") echo "selected"; ?>>Grand Chevalier</option>
-                            <option value="HAUTE DAME" <?php if ($member["grade"] == "HAUTE DAME") echo "selected"; ?>>Haute Dame</option>
-                            <option value="COMMANDEUR" <?php if ($member["grade"] == "COMMANDEUR") echo "selected"; ?>>Commandeur</option>
-                            <option value="GRAND CROIX" <?php if ($member["grade"] == "GRAND CROIX") echo "selected"; ?>>Grand’Croix</option>
+                            <?php
+                            // beaucoup de grades, on utilise donc une boucle pour rendre le code plus lisible encore une fois
+                            foreach ($this->grades as $value => $label) {
+                                $selected = ($member["grade"] == $value) ? "selected" : "";
+                                echo "<option value=\"$value\" $selected>$label</option>";
+                            } ?>
                         </select>
 
                         <label for="modif_dignite">Dignité :</label>

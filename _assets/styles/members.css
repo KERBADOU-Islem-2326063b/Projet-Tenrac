@@ -100,7 +100,6 @@ form label {
     margin: 0 10px;
     padding-right: 10px;
     border-right: orange 1px solid;
-    font-size: 0.9rem;
 }
 
 /* Colonne milieu gauche */
@@ -240,6 +239,7 @@ button {
 .modifMenu form {
     all: revert;
     display: flex;
+    align-items: center;
     flex-wrap: wrap;
     flex-direction: column;
     background-color: #f9f9f9;
