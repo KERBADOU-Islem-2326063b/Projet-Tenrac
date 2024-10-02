@@ -8,7 +8,8 @@ main {
     font-family: "Noto Sans Devanagari Condensed SemiBold", system-ui;
     font-size: 240%;
     color: #d18717;
-    padding: 35px 35px 5px 5%;
+    padding-top: 35px;
+    padding-bottom: 5px;
 }
 
 .repas {
@@ -91,4 +92,12 @@ main {
 .pagination a.prev,
 .pagination a.next {
     font-weight: bold;
+}
+
+/* Bouton */
+button {
+    flex-direction: column;
+    align-items: center;
+    padding: 8px;
+    width: 32px;
 }

@@ -96,29 +96,6 @@ class Repas {
     }
 
     /**
-     * Fait la mise à jour d'un repas en fonction de son nom
-     * @param string $nom_plat le nom du plat
-     * @param string $date_repas la date du repas
-     * @param string $adresse l'adresse du repas
-     * @return bool|string true si réussi, un string sinon
-     */
-    public function updateRepas(string $nom_plat, string $date_repas, string $adresse): bool|string {
-        $db = $this->db->getConn();
-        $query = 'UPDATE compose_repas SET nom_plat = :nom_plat WHERE date_repas = :date_repas AND adresse_postale = :adresse_postale';
-        $stmt = $db->prepare($query);
-        $stmt->bindParam(':nom_plat', $nom_plat);
-        $stmt->bindParam(':date_repas', $date_repas);
-        $stmt->bindParam(':adresse', $adresse);
-
-        try {
-            $stmt->execute();
-            return true;
-        } catch (PDOException $e) {
-            return $e->getMessage();
-        }
-    }
-
-    /**
      * Ajoute un nouveau repas à la base de données en fonction de son nom
      * @param string $date_repas la date du repas
      * @param string $adresse l'adresse du repas
