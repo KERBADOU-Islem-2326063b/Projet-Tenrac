@@ -2,8 +2,9 @@
 
 .ordre {
     font-size: 40px;
-    color: #ffc84d;
+    color: #ffc13a;
     margin: 1em 2em ;
+    border-bottom: 3px solid #ffc84d; ;
 
 }
 
@@ -12,12 +13,14 @@ main {
     flex-direction: column;
 }
 
-table {
+.tableOrdre {
     table-layout: auto;
     border: 6px solid #834f00;
     border-collapse: collapse;
     margin: 1em 5% 1em 5%;
+    width: 60%;
 }
+
 
 thead{
     background-color: #ffc84d;
@@ -42,6 +45,7 @@ th,td {
     padding: 1em 1em 1em 1em;
     border : 2px solid #834f00;
     text-align: center;
+    font-weight: bold;
 }
 
 tbody tr:nth-child(odd) {
@@ -99,4 +103,56 @@ td input[type="text"] {
     text-transform: uppercase;
     border: 2px solid #834f00;
     border-radius: 5px;
+}
+
+.supp {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+}
+
+button[type="submit"]{
+    width: 7em;
+    height: 2em;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 2px solid #834f00
+}
+
+.celluleAjout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0px;
+}
+
+.error-message {
+    color: red;
+    font-weight: bold;
+    text-align: left;
+}
+
+@media (max-width: 768px) {
+    table{
+        width: 100%;
+    }
+
+    .ordre {
+        font-size: 25px;
+    }
+
+    thead {
+        font-size: 12px;
+    }
+
+    tbody {
+        font-size: 9px;
+    }
+
+    button{
+        font-size: 12px;
+    }
 }

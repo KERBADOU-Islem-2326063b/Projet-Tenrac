@@ -23,20 +23,24 @@ class Ordre {
 
         $db = new Database();
         $ordreModel = new \Blog\Models\Ordre($db);
+        $errorMessage = '';
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (isset($_POST['add'])) {
                 $nom = $_POST['nom'];
                 $adresse = $_POST['adresse'];
 
-                $ordreModel->addOrdre($nom, $adresse);
+                try {
+                    $ordreModel->addOrdre($nom, $adresse);
+                } catch (\Exception $e) {
+                    $errorMessage = $e->getMessage();
+                }
 
             } elseif (isset($_POST['update'])) {
                 $oldNom = $_POST['oldNom'];
-                $newNom = $_POST['newNom'];
                 $adresse = $_POST['adresse'];
 
-                $ordreModel->updateOrdre($oldNom, $newNom, $adresse);
+                $ordreModel->updateOrdre($oldNom, $adresse);
 
             } elseif (isset($_POST['delete'])) {
                 $nom = $_POST['nom'];
@@ -56,7 +60,7 @@ class Ordre {
         $totalPages = ceil($totalClubs / $limit);
 
 
-        $view = new \Blog\Views\Ordre($result, $page, $totalPages);
+        $view = new \Blog\Views\Ordre($result, $page, $totalPages, $errorMessage);
         $layout = new Layout();
         $layout->renderTop($title, $description, $cssFilePath, $jsFilePath);
         $view->showView();
