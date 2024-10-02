@@ -8,6 +8,7 @@ class Homepage {
             <h1>Bienvenue chez les Tenrac !</h1>
             <p>Tenrac a pour but de réunir des adeptes de tenders de poulet à la raclette. Un tenrac est avant tout loyal à ces activités. Apprennez la vie, goûtez avec nous aux différentes recettes de poulet à la raclette.</p>
             <p>Sur ce site, vous pourrez rejoindre un <a href="/clubs">club</a> et voir leurs informations, voir la liste des <a href="/repas">repas</a> et plats ainsi que leurs ingrédiants, et plus encore !</p>
+            <p> Du fromage, et la meilleure viande au monde ... Qu'attendez vous,  <a href="/login">rejoingez nous !</a></p>
             <div class="carousel">
                 <div class="carousel-container">
                     <div class="carousel-slide">
@@ -47,7 +48,6 @@ class Homepage {
                     <p class="author">FONTAINE</p>
                 </div>
             </div>
-            <p> Du fromage, et la meilleure viande au monde ... Qu'attendez vous,  <a href="/login">rejoingez nous !</a></p>
         </main>
         <?php
     }
