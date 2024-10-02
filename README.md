@@ -18,7 +18,7 @@ Ce projet est un site Web dédié aux adeptes des tenders de poulet à la raclet
 
 Le site web est :
 - Responsive
-- Accesible
+- Acccessible
 - Référencé via Google
 
 Développé par ALVARES Titouan, AVIAS Daphné, KERBADOU Islem, ODERZO Flavio, PELLET Casimir, TRAN Thomas
